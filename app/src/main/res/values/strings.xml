@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">recruit</string>
+
+    <string-array name="array_names">
+        <item>"Java后台开发"</item>
+        <item>"Web前端"</item>
+        <item>"Android移动开发"</item>
+        <item>"关于研发"</item>
+
+    </string-array>
 </resources>
