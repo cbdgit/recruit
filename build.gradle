@@ -3,6 +3,11 @@
 buildscript {
     
     repositories {
+        repositories {
+            flatDir {
+                dirs 'libs'
+            }
+        }
         google()
         jcenter()
     }
@@ -17,6 +22,11 @@ buildscript {
 
 allprojects {
     repositories {
+        repositories {
+            flatDir {
+                dirs 'libs'
+            }
+        }
         google()
         jcenter()
     }

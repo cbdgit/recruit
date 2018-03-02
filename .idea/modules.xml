@@ -5,9 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/Euclid/library/library.iml" filepath="$PROJECT_DIR$/Euclid/library/library.iml" />
       <module fileurl="file://G:\Android Projects\recruit\Euclid\library\library.iml" filepath="G:\Android Projects\recruit\Euclid\library\library.iml" />
-      <module fileurl="file://F:\AndroidStudioProjects\recruit\app\app.iml" filepath="F:\AndroidStudioProjects\recruit\app\app.iml" />
       <module fileurl="file://$PROJECT_DIR$/recruit.iml" filepath="$PROJECT_DIR$/recruit.iml" />
-      <module fileurl="file://F:\AndroidStudioProjects\recruit\recruit.iml" filepath="F:\AndroidStudioProjects\recruit\recruit.iml" />
     </modules>
   </component>
 </project>

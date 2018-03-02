@@ -5,4 +5,27 @@
     <color name="colorAccent">#FF4081</color>
     <color name="colorBlack">#000000</color>
     <color name="colorWhite">#fdfdfe</color>
+    <color name="colorTextBlue">#66c3fe</color>   <!--前端-->
+    <color name="white">#FFFFFF</color>
+    <color name="Chartreuse1">#7FFF00</color>
+    <color name="SpringGreen2">#00EE76</color>      <!--安卓-->
+    <color name="Green3">#00CD00</color>
+    <color name="Green2">#00EE00</color>
+    <color name="SpringGreen3">#00CD66</color>
+    <color name="Cyan">#00FFFF</color>
+    <color name="DeepSkyBlue">#00BFFF</color>      <!--前端2-->
+    <color name="SeaGreen2">#4EEE94</color>
+    <color name="Tomato">#FF6347</color>
+    <color name="IndianRed1">#FF6A6A</color>
+    <color name="PaleVioletRed1">#FF82AB</color>    <!--后台-->
+    <color name="LemonChiffon1">#FFFACD</color>
+    <color name="Gold">#FFD700</color>
+    <color name="DarkGoldenrod2">#EEAD0E</color>
+    <color name="DarkGoldenrod1">#FFB90F</color>    <!--大数据-->
+    <color name="test">#993F9FE0</color>
+
+    <color name="web">#66c3fe</color>
+    <color name="java">#FF82AB</color>
+    <color name="android">#00EE76</color>
+    <color name="bigData">#FFB90F</color>
 </resources>

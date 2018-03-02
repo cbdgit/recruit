@@ -54,14 +54,7 @@ public class MainActivity extends AppCompatActivity {
        initView();
 
        initData();
-
-
-
-
-
     }
-
-
 
     private void initView(){
 
@@ -84,17 +77,8 @@ public class MainActivity extends AppCompatActivity {
         mPositionView = findViewById(R.id.position_view);
         mBubbleView = (BubbleView) findViewById(R.id.BubbleView);
 
-
-
-
-
-
-
-
-
-       initBubbleView();
+        initBubbleView();
         dealStatusBar();
-
     }
 
 
@@ -129,10 +113,8 @@ public class MainActivity extends AppCompatActivity {
                 mBubbleView.startAnimation(width,height);
                     mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
-
                         @Override
                         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
 
                         }
 
@@ -147,20 +129,10 @@ public class MainActivity extends AppCompatActivity {
 
                         }
                     });
-
-
-
                 }
             }
         });
-
-
-
     }
-
-
-
-
 
     /**
      * 调整沉浸式菜单的title
@@ -209,7 +181,4 @@ public class MainActivity extends AppCompatActivity {
         mViewPager.setCurrentItem(1);
 
     }
-
-
-
 }

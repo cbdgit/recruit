@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="recruit_gender">
+        <item>男</item>
+        <item>女</item>
+    </string-array>
+
+    <string-array name="recruit_job">
+        <item>班干部</item>
+        <item>社团小干</item>
+        <item>无官一身轻</item>
+        <item>其他</item>
+    </string-array>
+
+
+</resources>
