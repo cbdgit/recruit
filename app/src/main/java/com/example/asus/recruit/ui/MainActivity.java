@@ -30,6 +30,7 @@ import android.os.Build;
 import android.support.v4.view.ViewPager;
 
 import android.view.WindowManager;
+import android.widget.ImageView;
 
 import static com.example.asus.recruit.configs.Content.IMAGE_ID;
 import static com.example.asus.recruit.configs.Content.NAME;
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
     private List<CommonFragment> mFragments;
     private BubbleView mBubbleView;
     private FragmentAdapter mAdapter;
+    private ImageView iv_baoming;
 
     private Handler mHandler;
     private static final String TAG = "MainActivity";
@@ -76,6 +78,13 @@ public class MainActivity extends AppCompatActivity {
         mViewPager = (ViewPager)findViewById(R.id.viewpager);
         mPositionView = findViewById(R.id.position_view);
         mBubbleView = (BubbleView) findViewById(R.id.BubbleView);
+        iv_baoming = (ImageView) findViewById(R.id.iv_baoming);
+        iv_baoming.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, RecruitActivity.class));
+            }
+        });
 
         initBubbleView();
         dealStatusBar();

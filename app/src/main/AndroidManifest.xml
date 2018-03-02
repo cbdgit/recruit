@@ -19,18 +19,15 @@
 
         </activity>
         <activity android:name=".ui.LaunchActivity">
-
-        </activity>
-        <activity android:name=".ui.DetailActivity">
-        </activity>
-        <activity android:name=".ui.RecruitActivity">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-
+        </activity>
+        <activity android:name=".ui.DetailActivity">
+        </activity>
+        <activity android:name=".ui.RecruitActivity">
 
         </activity>
     </application>
