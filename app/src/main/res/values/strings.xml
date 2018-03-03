@@ -8,4 +8,7 @@
         <item>"关于研发"</item>
 
     </string-array>
+
+    <string name="gender">gender</string>
+    <string name="job">job</string>
 </resources>
