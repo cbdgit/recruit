@@ -93,7 +93,9 @@ public class MainActivity extends AppCompatActivity {
         mImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                field.explode(mImageView);
+               // field.explode(mImageView);
+                Intent intent = new Intent(MainActivity.this,RecruitActivity.class);
+                startActivity(intent);
 
 
 
@@ -158,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
                 mBubbleView.getViewTreeObserver().removeGlobalOnLayoutListener(this);
                 if (height!=0&&width!=0){
 
-                mBubbleView.startAnimation(width,height);
+             //   mBubbleView.startAnimation(width,height);
                     mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
 
@@ -171,7 +173,7 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onPageSelected(int position) {
                             reset(mImageView);
-                            mBubbleView.startAnimation(width,height);
+                            //mBubbleView.startAnimation(width,height);
                         }
 
                         @Override
