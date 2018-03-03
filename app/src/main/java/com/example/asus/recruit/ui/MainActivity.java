@@ -30,6 +30,10 @@ import android.os.Build;
 import android.support.v4.view.ViewPager;
 
 import android.view.WindowManager;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+import tyrantgit.explosionfield.ExplosionField;
 
 import static com.example.asus.recruit.configs.Content.IMAGE_ID;
 import static com.example.asus.recruit.configs.Content.NAME;
@@ -42,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     private List<CommonFragment> mFragments;
     private BubbleView mBubbleView;
     private FragmentAdapter mAdapter;
+    private ImageView mImageView;
 
     private Handler mHandler;
     private static final String TAG = "MainActivity";
@@ -83,6 +88,19 @@ public class MainActivity extends AppCompatActivity {
         mViewPager = (ViewPager)findViewById(R.id.viewpager);
         mPositionView = findViewById(R.id.position_view);
         mBubbleView = (BubbleView) findViewById(R.id.BubbleView);
+        mImageView = (ImageView)findViewById(R.id.iv_baoming);
+        final ExplosionField field = ExplosionField.attach2Window(this);
+        mImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                field.explode(mImageView);
+
+
+
+
+            }
+        });
+
 
 
 
@@ -95,6 +113,20 @@ public class MainActivity extends AppCompatActivity {
        initBubbleView();
         dealStatusBar();
 
+    }
+
+
+    private void reset(View root) {
+        if (root instanceof ViewGroup) {
+            ViewGroup parent = (ViewGroup) root;
+            for (int i = 0; i < parent.getChildCount(); i++) {
+                reset(parent.getChildAt(i));
+            }
+        } else {
+            root.setScaleX(1);
+            root.setScaleY(1);
+            root.setAlpha(1);
+        }
     }
 
 
@@ -138,7 +170,7 @@ public class MainActivity extends AppCompatActivity {
 
                         @Override
                         public void onPageSelected(int position) {
-
+                            reset(mImageView);
                             mBubbleView.startAnimation(width,height);
                         }
 
@@ -205,8 +237,8 @@ public class MainActivity extends AppCompatActivity {
         mViewPager.setAdapter(mAdapter);
         mViewPager.setPageMargin(-40);
         mViewPager.setPageTransformer(false, new CustPagerTransformer(this));
-        Log.e(TAG, "initData: "+(Integer.MAX_VALUE/2-Integer.MAX_VALUE/2%mFragments.size()) );
-        mViewPager.setCurrentItem(1);
+
+
 
     }
 

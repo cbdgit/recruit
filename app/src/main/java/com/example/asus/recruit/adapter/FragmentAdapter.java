@@ -4,6 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.util.Log;
+import android.view.ViewGroup;
 
 import com.example.asus.recruit.ui.CommonFragment;
 
@@ -24,11 +25,14 @@ public class FragmentAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return mFragments.get(position);
+
+        return mFragments.get(position%mFragments.size());
     }
 
     @Override
     public int getCount() {
         return mFragments.size();
     }
+
+
 }

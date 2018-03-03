@@ -11,7 +11,7 @@ public class Content {
     public static final String[]  SUMMARY = {"主要进行Java后台服务器开发如JavaWeb应用服务器开发和维护","基于HTML/CSS/JS开发，专注于网站界面以及提供更好的视觉冲击和用户体验"
             ,"专注基于Java语言App开发与Android 前沿技术的专研与发展","研发"};
 
-    public static final int[] IMAGE_ID = {R.drawable.houtai,R.drawable.qianduan,R.drawable.android,R.drawable.yanfa};
+    public static final int[] IMAGE_ID = {R.drawable.houtai,R.drawable.qianduan,R.drawable.android_1,R.drawable.yanfa};
     public static final String[] CONTENT = {"      Java后台开发" +
             "研发后台小组一直致力于Javaweb开发,专注" +
             "于各种前沿的Java技术学习和实践能力的结合," +
