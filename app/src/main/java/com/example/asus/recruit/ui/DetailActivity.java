@@ -1,15 +1,12 @@
 package com.example.asus.recruit.ui;
 
-import android.animation.ValueAnimator;
-import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Build;
-import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewCompat;
 
+import android.view.KeyEvent;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -17,26 +14,25 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.asus.recruit.R;
+import com.example.asus.recruit.configs.Extra;
 
 
-import static com.example.asus.recruit.configs.Content.CONTENT;
 import static com.example.asus.recruit.configs.Extra.IMAGE_ID;
 import static com.example.asus.recruit.configs.Extra.NAME;
 import static com.example.asus.recruit.configs.Extra.SUMMARY;
 import static com.example.asus.recruit.configs.Transtion.GROUPNAME_TRANSITION_NAME;
-import static com.example.asus.recruit.configs.Transtion.ICON_TRANSITION_NAME;
 import static com.example.asus.recruit.configs.Transtion.IMAGE_TRANSITION_NAME;
 import static com.example.asus.recruit.configs.Transtion.NAME_TRANSITION_NAME;
 import static com.example.asus.recruit.configs.Transtion.SUMMARY_TRANSITION_NAME;
 import static com.example.asus.recruit.configs.Transtion.YANFA_TRANSITION_NAME;
 
 public class DetailActivity extends AppCompatActivity {
-    private ImageView mImageView;
+    private ImageView mImage;
     private TextView mTextYanFa;
     private TextView mTextGroupName;
     private TextView mTextName;
     private TextView mTextSummary;
-    private ImageView mImageIcon;
+
 
 
 
@@ -63,15 +59,14 @@ public class DetailActivity extends AppCompatActivity {
         }
 
 
-        mImageIcon = findViewById(R.id.iv_icon);
-        mImageView = findViewById(R.id.image);
+
+        mImage = findViewById(R.id.image);
         mTextYanFa = findViewById(R.id.tv_yanfa);
         mTextName = findViewById(R.id.tv_name);
         mTextGroupName = findViewById(R.id.tv_group_name);
         mTextSummary = findViewById(R.id.tv_summary);
 
-        ViewCompat.setTransitionName(mImageView,IMAGE_TRANSITION_NAME);
-        ViewCompat.setTransitionName(mImageIcon,ICON_TRANSITION_NAME);
+        ViewCompat.setTransitionName(mImage,IMAGE_TRANSITION_NAME);
         ViewCompat.setTransitionName(mTextGroupName,GROUPNAME_TRANSITION_NAME);
         ViewCompat.setTransitionName(mTextName, NAME_TRANSITION_NAME);
         ViewCompat.setTransitionName(mTextYanFa, YANFA_TRANSITION_NAME);
@@ -84,14 +79,26 @@ public class DetailActivity extends AppCompatActivity {
         int id = getIntent().getIntExtra(IMAGE_ID
                 ,0);
         String name  =getIntent().getStringExtra(NAME);
-        String summmary = getIntent().getStringExtra(SUMMARY);
+        String content = getIntent().getStringExtra(Extra.CONTENT);
 
-        mImageView.setImageResource(id);
+        mImage.setImageResource(id);
         mTextName.setText(name);
         mTextGroupName.setText(name);
-        mTextSummary.setText(CONTENT[0]);
+        mTextSummary.setText(content);
     }
 
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if ((keyCode == KeyEvent.KEYCODE_BACK)) {
+            DetailActivity.this.overridePendingTransition(R.anim.slideto_left, R.anim.slide_right);
+            finish();
+            return false;
+        }else {
+            return super.onKeyDown(keyCode, event);
+
+        }
+
+    }
 
 
 

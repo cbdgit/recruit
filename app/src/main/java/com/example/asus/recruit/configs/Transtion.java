@@ -1,8 +1,5 @@
 package com.example.asus.recruit.configs;
 
-/**
- * Created by asus on 18-2-3.
- */
 
 public class Transtion {
 

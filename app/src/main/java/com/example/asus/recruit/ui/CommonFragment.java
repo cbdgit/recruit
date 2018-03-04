@@ -22,6 +22,7 @@ import com.example.asus.recruit.widget.DragLayout;
 
 import org.w3c.dom.Text;
 
+import static com.example.asus.recruit.configs.Extra.CONTENT;
 import static com.example.asus.recruit.configs.Extra.IMAGE_ID;
 import static com.example.asus.recruit.configs.Extra.NAME;
 import static com.example.asus.recruit.configs.Extra.SUMMARY;
@@ -34,14 +35,15 @@ import static com.example.asus.recruit.configs.Transtion.YANFA_TRANSITION_NAME;
 
 
 public class CommonFragment extends Fragment implements DragLayout.GotoDetailListener,View.OnClickListener {
-    private ImageView mImageView;
+    private ImageView mImage;
     private TextView mTextYanFa;
     private TextView mTextGroupName;
     private TextView mTextName;
     private TextView mTextSummary;
-    private ImageView mImageIcon;
+
     private String mName;
     private String mSummary;
+    private String mContent;
     private int mImageId;
     private DragLayout mDragLayout;
 
@@ -60,15 +62,14 @@ public class CommonFragment extends Fragment implements DragLayout.GotoDetailLis
 
     private void initView(View view) {
         mDragLayout = view.findViewById(R.id.drag_layout);
-        mImageView = (ImageView) mDragLayout.findViewById(R.id.image);
+        mImage = (ImageView) mDragLayout.findViewById(R.id.image);
         mTextName = mDragLayout.findViewById(R.id.tv_name);
         mTextSummary = mDragLayout.findViewById(R.id.tv_summary);
         mTextYanFa = mDragLayout.findViewById(R.id.tv_yanfa);
         mTextGroupName = mDragLayout.findViewById(R.id.tv_group_name);
 
-        mImageIcon = mDragLayout.findViewById(R.id.iv_icon);
 
-        mImageView.setImageResource(mImageId);
+        mImage.setImageResource(mImageId);
         mTextName.setText(mName);
         mTextGroupName.setText(mName);
         mTextSummary.setText(mSummary);
@@ -83,25 +84,27 @@ public class CommonFragment extends Fragment implements DragLayout.GotoDetailLis
     public void gotoDetail() {
         Activity activity = (Activity) getContext();
         ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity,
-                new Pair(mImageView, IMAGE_TRANSITION_NAME),
+                new Pair(mImage, IMAGE_TRANSITION_NAME),
                 new Pair(mTextGroupName, GROUPNAME_TRANSITION_NAME),
                 new Pair(mTextName, NAME_TRANSITION_NAME),
                 new Pair(mTextSummary, SUMMARY_TRANSITION_NAME),
-                new Pair(mTextYanFa, YANFA_TRANSITION_NAME),
-                new Pair(mImageIcon, ICON_TRANSITION_NAME));
+                new Pair(mTextYanFa, YANFA_TRANSITION_NAME)
+                );
 
 
         Intent intent = new Intent(activity, DetailActivity.class);
         intent.putExtra(IMAGE_ID, mImageId);
         intent.putExtra(NAME, mName);
         intent.putExtra(SUMMARY, mSummary);
+        intent.putExtra(CONTENT,mContent);
         ActivityCompat.startActivity(activity, intent, options.toBundle());
     }
 
-    public void bindData(int imageId, String name, String sum) {
+    public void bindData(int imageId, String name, String sum,String content) {
        this.mImageId = imageId;
        this.mName = name;
        this.mSummary = sum;
+       this.mContent = content;
 
 
 
@@ -111,18 +114,19 @@ public class CommonFragment extends Fragment implements DragLayout.GotoDetailLis
     public void onClick(View view) {
         Activity activity = (Activity) getContext();
         ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity,
-                new Pair(mImageView, IMAGE_TRANSITION_NAME),
+                new Pair(mImage, IMAGE_TRANSITION_NAME),
                 new Pair(mTextGroupName, GROUPNAME_TRANSITION_NAME),
                 new Pair(mTextName, NAME_TRANSITION_NAME),
                 new Pair(mTextSummary, SUMMARY_TRANSITION_NAME),
-                new Pair(mTextYanFa, YANFA_TRANSITION_NAME),
-                new Pair(mImageIcon, ICON_TRANSITION_NAME));
+                new Pair(mTextYanFa, YANFA_TRANSITION_NAME)
+               );
 
 
         Intent intent = new Intent(activity, DetailActivity.class);
         intent.putExtra(IMAGE_ID, mImageId);
         intent.putExtra(NAME, mName);
         intent.putExtra(SUMMARY, mSummary);
+        intent.putExtra(CONTENT,mContent);
         ActivityCompat.startActivity(activity, intent, options.toBundle());
     }
 }

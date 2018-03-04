@@ -15,28 +15,9 @@ import com.example.asus.recruit.R;
 public class LaunchActivity extends AppCompatActivity {
 
     private AlphaAnimation mAnimator;
-    ImageView mIvBgBefore;
+    private ImageView mImageBefore;
 
-    private void initView() {
-        this.mIvBgBefore = ((ImageView) findViewById(R.id.iv_bg_before));
-        this.mAnimator = new AlphaAnimation(1.0F, 0.0F);
-        this.mAnimator.setDuration(2500L);
-        this.mAnimator.setFillAfter(true);
-        this.mAnimator.setAnimationListener(new Animation.AnimationListener() {
-            public void onAnimationEnd(Animation paramAnonymousAnimation) {
-                LaunchActivity.this.startActivity(new Intent(LaunchActivity.this, MainActivity.class));
-                LaunchActivity.this.overridePendingTransition(R.anim.slide_x0, R.anim.slideto_left);
-                LaunchActivity.this.finish();
-            }
 
-            public void onAnimationRepeat(Animation paramAnonymousAnimation) {
-            }
-
-            public void onAnimationStart(Animation paramAnonymousAnimation) {
-            }
-        });
-        this.mIvBgBefore.startAnimation(this.mAnimator);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,13 +31,29 @@ public class LaunchActivity extends AppCompatActivity {
         initView();
     }
 
-    protected void onDestroy() {
-        super.onDestroy();
+
+    private void initView() {
+        mImageBefore = ((ImageView) findViewById(R.id.iv_bg_before));
+        mAnimator = new AlphaAnimation(1.0F, 0.0F);
+        mAnimator.setDuration(2500L);
+        mAnimator.setFillAfter(true);
+        mAnimator.setAnimationListener(new Animation.AnimationListener() {
+            public void onAnimationEnd(Animation paramAnonymousAnimation) {
+                LaunchActivity.this.startActivity(new Intent(LaunchActivity.this, MainActivity.class));
+                LaunchActivity.this.overridePendingTransition(R.anim.slide_right, R.anim.slideto_left);
+                LaunchActivity.this.finish();
+            }
+
+            public void onAnimationRepeat(Animation paramAnonymousAnimation) {
+            }
+
+            public void onAnimationStart(Animation paramAnonymousAnimation) {
+            }
+        });
+        this.mImageBefore.startAnimation(this.mAnimator);
     }
 
-    protected void onPause() {
-        super.onPause();
-    }
+
 }
 
 

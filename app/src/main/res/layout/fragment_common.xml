@@ -102,20 +102,12 @@
                     android:id="@+id/tv_yanfa"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/address3"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
                     android:text="研发中心"
                     android:textColor="#12edf0"
-                    android:textSize="15sp"/>
+                    android:textSize="20sp"/>
 
-                <ImageView
-                    android:id="@+id/iv_icon"
-                    android:layout_width="22dp"
-                    android:layout_height="22dp"
-                    android:layout_centerInParent="true"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/gps"/>
 
                 <TextView
                     android:id="@+id/tv_group_name"
@@ -125,7 +117,7 @@
                     android:layout_centerVertical="true"
                     android:text="Web 前端"
                     android:textColor="#12edf0"
-                    android:textSize="13sp"/>
+                    android:textSize="20sp"/>
 
             </RelativeLayout>
 

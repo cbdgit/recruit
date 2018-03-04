@@ -1,8 +1,6 @@
 package com.example.asus.recruit.entity;
 
-/**
- * Created by asus on 18-2-3.
- */
+
 
 public class Groups {
     private String mName;

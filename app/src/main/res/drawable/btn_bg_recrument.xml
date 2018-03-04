@@ -23,7 +23,7 @@
 
     <!-- 填充 -->
     <solid
-        android:color="@color/colorAccent"
+        android:color="@color/colorJava"
         /><!-- 填充的颜色 -->
 
 

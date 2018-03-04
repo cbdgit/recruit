@@ -1,10 +1,12 @@
 package com.example.asus.recruit.ui;
 
+import android.animation.ArgbEvaluator;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -30,11 +32,13 @@ import android.os.Build;
 import android.support.v4.view.ViewPager;
 
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import tyrantgit.explosionfield.ExplosionField;
 
+import static com.example.asus.recruit.configs.Content.CONTENT;
 import static com.example.asus.recruit.configs.Content.IMAGE_ID;
 import static com.example.asus.recruit.configs.Content.NAME;
 import static com.example.asus.recruit.configs.Content.SUMMARY;
@@ -46,9 +50,7 @@ public class MainActivity extends AppCompatActivity {
     private List<CommonFragment> mFragments;
     private BubbleView mBubbleView;
     private FragmentAdapter mAdapter;
-    private ImageView mImageView;
-
-    private Handler mHandler;
+    private Button mButton;
     private static final String TAG = "MainActivity";
 
     @Override
@@ -88,9 +90,9 @@ public class MainActivity extends AppCompatActivity {
         mViewPager = (ViewPager)findViewById(R.id.viewpager);
         mPositionView = findViewById(R.id.position_view);
         mBubbleView = (BubbleView) findViewById(R.id.BubbleView);
-        mImageView = (ImageView)findViewById(R.id.iv_baoming);
-        final ExplosionField field = ExplosionField.attach2Window(this);
-        mImageView.setOnClickListener(new View.OnClickListener() {
+        mButton = (Button)findViewById(R.id.iv_baoming);
+       // final ExplosionField field = ExplosionField.attach2Window(this);
+        mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                // field.explode(mImageView);
@@ -117,19 +119,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
-    private void reset(View root) {
-        if (root instanceof ViewGroup) {
-            ViewGroup parent = (ViewGroup) root;
-            for (int i = 0; i < parent.getChildCount(); i++) {
-                reset(parent.getChildAt(i));
-            }
-        } else {
-            root.setScaleX(1);
-            root.setScaleY(1);
-            root.setAlpha(1);
-        }
-    }
 
 
     /**
@@ -163,16 +152,29 @@ public class MainActivity extends AppCompatActivity {
              //   mBubbleView.startAnimation(width,height);
                     mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
-
+                        GradientDrawable myGrad = (GradientDrawable)mButton.getBackground();
                         @Override
                         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                            ArgbEvaluator evaluator = new ArgbEvaluator(); // ARGB求值器
+                            int evaluate = 0x00FFFFFF; // 初始默认颜色（透明白）
+                            if (position == 0) {
+                                evaluate = (Integer) evaluator.evaluate(positionOffset, 0XFF5d8cb0, 0XFFbc67fd); // 根据positionOffset和第0页~第1页的颜色转换范围取颜色值
+                            }else if(position == 1){
+                                evaluate = (Integer) evaluator.evaluate(positionOffset, 0XFFbc67fd, 0XFF5ca701); // 根据positionOffset和第1页~第2页的颜色转换范围取颜色值
+                            } else if(position == 2){
+                                evaluate = (Integer) evaluator.evaluate(positionOffset, 0XFF5ca701, 0XFF0a2f53); // 根据positionOffset和第2页~第3页的颜色转换范围取颜色值
+                            } else{
+                                evaluate = 0XFF0a2f53; // 最终第3页的颜色
+                            }
+
+                            myGrad.setColor(evaluate);
 
 
                         }
 
                         @Override
                         public void onPageSelected(int position) {
-                            reset(mImageView);
+
                             //mBubbleView.startAnimation(width,height);
                         }
 
@@ -231,7 +233,7 @@ public class MainActivity extends AppCompatActivity {
 
         for (int i =0;i<4;i++){
             CommonFragment fragment = new CommonFragment();
-            fragment.bindData(IMAGE_ID[i],NAME[i],SUMMARY[i]);
+            fragment.bindData(IMAGE_ID[i],NAME[i],SUMMARY[i],CONTENT[i]);
             mFragments.add(fragment);
 
         }

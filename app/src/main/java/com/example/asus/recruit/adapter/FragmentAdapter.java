@@ -10,9 +10,7 @@ import com.example.asus.recruit.ui.CommonFragment;
 
 import java.util.List;
 
-/**
- * Created by asus on 18-2-3.
- */
+
 
 public class FragmentAdapter extends FragmentPagerAdapter {
    private List<CommonFragment> mFragments;
