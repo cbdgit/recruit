@@ -1,5 +1,6 @@
 package com.example.asus.recruit.ui;
 
+import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
@@ -11,6 +12,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -41,7 +43,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class RecruitActivity extends AppCompatActivity implements View.OnClickListener, RecruitContract.IRecruitView{
+public class RecruitActivity extends AppCompatActivity implements View.OnClickListener, RecruitContract.IRecruitView, View.OnTouchListener{
 
     private String TAG = "RecruitActivity";
     @BindView(R.id.imageView_back) ImageView imageView_back;
@@ -55,7 +57,6 @@ public class RecruitActivity extends AppCompatActivity implements View.OnClickLi
     @BindView(R.id.editText_skill) EditText editText_skill;
     @BindView(R.id.editText_introduce) EditText editText_introduce;
     @BindView(R.id.editText_wish) EditText editText_wish;
-    @BindView(R.id.editText_key) EditText editText_key;
     @BindView(R.id.spinner_gender) Spinner spinner_gender;
     @BindView(R.id.radioButton_web) RadioButton radioButton_web;
     @BindView(R.id.radioButton_java) RadioButton radioButton_java;
@@ -87,6 +88,7 @@ public class RecruitActivity extends AppCompatActivity implements View.OnClickLi
 
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private void initView() {
         imageView_back.setOnClickListener(this);
         button_confirm.setOnClickListener(this);
@@ -119,7 +121,39 @@ public class RecruitActivity extends AppCompatActivity implements View.OnClickLi
                 }
             }
         });
+
+        editText_introduce.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (v.getId() == R.id.editText_introduce) {
+                    v.getParent().requestDisallowInterceptTouchEvent(true);
+                    switch (event.getAction()&MotionEvent.ACTION_MASK){
+                        case MotionEvent.ACTION_UP:
+                            v.getParent().requestDisallowInterceptTouchEvent(false);
+                            break;
+                    }
+                }
+                return false;
+            }
+        });
+
+
+        editText_wish.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (v.getId() == R.id.editText_wish) {
+                    v.getParent().requestDisallowInterceptTouchEvent(true);
+                    switch (event.getAction()&MotionEvent.ACTION_MASK){
+                        case MotionEvent.ACTION_UP:
+                            v.getParent().requestDisallowInterceptTouchEvent(false);
+                            break;
+                    }
+                }
+                return false;
+            }
+        });
     }
+
 
     private void initValidate() {
 
@@ -294,4 +328,10 @@ public class RecruitActivity extends AppCompatActivity implements View.OnClickLi
     public void onFailed(String errMsg) {
         Toast.makeText(this, "报名失败 ，" + errMsg, Toast.LENGTH_SHORT).show();
     }
+
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        return false;
+    }
+
 }
