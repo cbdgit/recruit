@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">recruit</string>
+    <string name="app_name">研发招新</string>
 
     <string-array name="array_names">
         <item>"Java后台开发"</item>

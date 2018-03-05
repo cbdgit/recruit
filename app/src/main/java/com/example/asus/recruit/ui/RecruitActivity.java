@@ -26,6 +26,7 @@ import android.widget.Toast;
 import com.example.asus.recruit.R;
 import com.example.asus.recruit.contract.RecruitContract;
 import com.example.asus.recruit.entity.HTTPResult;
+import com.example.asus.recruit.entity.ValidateResult;
 import com.example.asus.recruit.presenter.RecruitPresenter;
 import com.example.asus.recruit.widget.CustomNestRadioGroup;
 import com.example.asus.recruit.widget.OneKeyClearEditText;
@@ -72,7 +73,8 @@ public class RecruitActivity extends AppCompatActivity implements View.OnClickLi
     private static final String mBaseUrl = "http://120.78.74.103/rdc/user/ready?t=";
     private String time;
     //private static final String validateURL = "http://120.78.74.103/robot/account/loginAccount";
-    private static final String validateURL = "";
+//    private static final String validateURL = "";
+    private static final String validateURL = null;
     private GT3GeetestUtilsBind gt3GeetestUtils;
 
     private RecruitPresenter recruitPresenter;
@@ -215,8 +217,8 @@ public class RecruitActivity extends AppCompatActivity implements View.OnClickLi
 
                         gt3GeetestUtils.gt3TestFinish();
 
-                        Log.d(TAG, res_json.getString("geetest_challenge") + res_json.getString("geetest_validate") +
-                                res_json.getString("geetest_seccode") + editText_name.getText().toString() + editText_studentId.getText().toString() +
+                        Log.d(TAG, res_json.getString("geetest_challenge:") + res_json.getString(" geetest_validate:") +
+                                res_json.getString(" geetest_seccode:") + editText_name.getText().toString() + editText_studentId.getText().toString() +
                                 spinner_gender.getSelectedItem().toString() + editText_class.getText().toString() + editText_duty.getText().toString() +
                                 editText_telephone.getText().toString() + "0" + editText_email.getText().toString() +
                                 editText_qq.getText().toString() + ((RadioButton)findViewById(radioGroup_direction.getCheckedRadioButtonId())).getText().toString() +
@@ -275,6 +277,18 @@ public class RecruitActivity extends AppCompatActivity implements View.OnClickLi
             @Override
             public void gt3DialogOnError(String error) {
                 Log.i("dsd","gt3DialogOnError");
+//                gt3GeetestUtils.gt3TestFinish();    //.......
+//                long t;
+//                t = new Date().getTime();
+//                time = String.valueOf(t);
+//
+//                recruitPresenter.getValidate(time);
+//                recruitPresenter.commit("319d51735f442617c949b2e622d5bdde96", "0eea15f556043ca0fa55ed948e8e2735",
+//                        "0eea15f556043ca0fa55ed948e8e2735|jordan", editText_name.getText().toString(), editText_studentId.getText().toString(),
+//                        spinner_gender.getSelectedItem().toString(), editText_class.getText().toString(), editText_duty.getText().toString(),
+//                        editText_telephone.getText().toString(), "0", editText_email.getText().toString(),
+//                        editText_qq.getText().toString(), ((RadioButton)findViewById(radioGroup_direction.getCheckedRadioButtonId())).getText().toString(),
+//                        editText_skill.getText().toString(), editText_introduce.getText().toString(), editText_wish.getText().toString());
 
             }
         });
@@ -327,6 +341,11 @@ public class RecruitActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onFailed(String errMsg) {
         Toast.makeText(this, "报名失败 ，" + errMsg, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onValidateSuccess(ValidateResult validateResult) {
+
     }
 
     @Override
