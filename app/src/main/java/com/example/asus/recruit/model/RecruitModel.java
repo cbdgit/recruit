@@ -95,6 +95,66 @@ public class RecruitModel implements RecruitContract.IRecruitModel {
     }
 
     @Override
+    public void withoutValidate(String name, String number, String sex, String majorAndClass,
+                       String duties, String phone, String shortNumber, String email, String QQ, String organize, String speciality,
+                       String introduce, String purpose, final OnHttpCallBack<Response<HTTPResult>> callBack) {
+
+//        MyApplication.setCookie("");
+        RetrofitProviderUtil.getRetrofitProvider()
+                .create(IRecruitService.class)
+                .withoutValidate(name, number, sex, majorAndClass, duties, phone, shortNumber, email, QQ, organize, speciality, introduce, purpose)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.newThread())
+                .subscribe(new Observer<Response<HTTPResult>>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                        Log.d("RecruitModel","onSubscribe");
+                    }
+
+                    @Override
+                    public void onNext(Response<HTTPResult> response) {
+                        Log.d("RecruitModel","onNext");
+
+                        Log.d("RecruitModel", "cookie:" + MyApplication.getCookie());
+
+                        HTTPResult result = response.body();
+                        if (result.getResult().equals("success")){
+                            callBack.onSuccessful(response);
+                            Log.d("RecruitModel", "SUCCESS");
+                        }else {
+                            callBack.onFailed(result.getMessage());
+                            Log.d("RecruitModel", "FAILED");
+                            Log.d("RecruitModel",result.getMessage());
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable t) {
+                        Log.d("RecruitModel","onError");
+                        t.printStackTrace();
+                        if (t instanceof HttpException) {
+                            HttpException httpException = (HttpException) t;
+                            int code = httpException.code();
+                            if (code == 500 || code == 404) {
+                                callBack.onFailed("服务器出错");
+                            }
+                        } else if (t instanceof ConnectException) {
+                            callBack.onFailed("网络断开,请打开网络!");
+                        } else if (t instanceof SocketTimeoutException) {
+                            callBack.onFailed("网络连接超时!!");
+                        } else {
+                            callBack.onFailed("发生未知错误" + t.getMessage());
+                        }
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        Log.d("RecruitModel","onComplete");
+                    }
+                });
+    }
+
+    @Override
     public void getValidate(String t, final OnHttpCallBack<Response<ValidateResult>> callBack) {
 
         MyApplication.setCookie("");
