@@ -72,7 +72,8 @@ public class RecruitActivity extends AppCompatActivity implements View.OnClickLi
     private static final String mBaseUrl = "http://120.78.74.103/rdc/user/ready?t=";
     private String time;
     //private static final String validateURL = "http://120.78.74.103/robot/account/loginAccount";
-    private static final String validateURL = "";
+    //private static final String validateURL = "";
+    private static final String validateURL = null;
     private GT3GeetestUtilsBind gt3GeetestUtils;
 
     private RecruitPresenter recruitPresenter;
@@ -244,10 +245,9 @@ public class RecruitActivity extends AppCompatActivity implements View.OnClickLi
             public Map<String, String> gt3SecondResult() {
                 Map<String, String> map = new HashMap<String, String>();
                 //map.put("testkey","12315");
-                map.put("name", "aaa");
-                map.put("password", "123");
+                //map.put("name", "aaa");
+                //map.put("password", "123");
                 return map;
-
             }
 
             @Override
@@ -273,9 +273,13 @@ public class RecruitActivity extends AppCompatActivity implements View.OnClickLi
             }
 
             @Override
-            public void gt3DialogOnError(String error) {
+            public void gt3DialogOnError(String error) {    //...
                 Log.i("dsd","gt3DialogOnError");
-
+                recruitPresenter.withoutValidate(editText_name.getText().toString(), editText_studentId.getText().toString(),
+                        spinner_gender.getSelectedItem().toString(), editText_class.getText().toString(), editText_duty.getText().toString(),
+                        editText_telephone.getText().toString(), "0", editText_email.getText().toString(),
+                        editText_qq.getText().toString(), ((RadioButton)findViewById(radioGroup_direction.getCheckedRadioButtonId())).getText().toString(),
+                        editText_skill.getText().toString(), editText_introduce.getText().toString(), editText_wish.getText().toString());
             }
         });
         //设置是否可以点击屏幕边缘关闭验证码

@@ -55,4 +55,22 @@ public class RecruitPresenter implements RecruitContract.IRecruitPresenter {
                 });
 
     }
+
+    @Override
+    public void withoutValidate(String name, String number, String sex, String majorAndClass, String duties,
+                                String phone, String shortNumber, String email, String QQ, String organize, String speciality, String introduce, String purpose) {
+
+        mIRecruitModel.withoutValidate(name, number, sex, majorAndClass, duties, phone, shortNumber, email, QQ, organize,
+                speciality, introduce, purpose, new OnHttpCallBack<Response<HTTPResult>>() {
+                    @Override
+                    public void onSuccessful(Response<HTTPResult> result) {
+                        mIRecruitView.onSuccess(result.body());
+                    }
+
+                    @Override
+                    public void onFailed(String errorMsg) {
+                        mIRecruitView.onFailed(errorMsg);
+                    }
+                });
+    }
 }

@@ -24,6 +24,14 @@ public class RecruitContract {
                 , String introduce, String purpose, OnHttpCallBack<Response<HTTPResult>> callBack);
 
         void getValidate(String t, OnHttpCallBack<Response<ValidateResult>> callBack);
+
+        void withoutValidate(String name
+                , String number, String sex
+                , String majorAndClass, String duties
+                , String phone, String shortNumber
+                , String email, String QQ
+                , String organize, String speciality
+                , String introduce, String purpose, OnHttpCallBack<Response<HTTPResult>> callBack);
     }
 
     public interface IRecruitPresenter{
@@ -37,5 +45,13 @@ public class RecruitContract {
                 , String introduce, String purpose);
 
         void getValidate(String t);
+
+        void withoutValidate(String name
+                , String number, String sex
+                , String majorAndClass, String duties
+                , String phone, String shortNumber
+                , String email, String QQ
+                , String organize, String speciality
+                , String introduce, String purpose);
     }
 }

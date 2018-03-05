@@ -28,4 +28,13 @@ public interface IRecruitService {
     @GET("ready")
     Observable<Response<ValidateResult>> getValidate(@Query("t") String date);
 
+    @POST("withoutValidate")
+    @FormUrlEncoded
+    Observable<Response<HTTPResult>> withoutValidate(@Field("name") String name
+            , @Field("number") String number, @Field("sex") String sex
+            , @Field("majorAndClass") String majorAndClass, @Field("duties") String duties
+            , @Field("phone") String phone, @Field("shortNumber") String shortNumber
+            , @Field("email") String email, @Field("QQ") String QQ
+            , @Field("organize") String organize, @Field("speciality") String speciality
+            , @Field("introduce") String introduce, @Field("purpose") String purpose);
 }
