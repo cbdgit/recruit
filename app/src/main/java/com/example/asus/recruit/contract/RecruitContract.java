@@ -11,7 +11,6 @@ public class RecruitContract {
     public interface IRecruitView{
         void onSuccess(HTTPResult httpResult);
         void onFailed(String errMsg);
-        void onValidateSuccess(ValidateResult validateResult);
     }
 
     public interface IRecruitModel{

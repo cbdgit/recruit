@@ -26,6 +26,7 @@ import android.widget.Toast;
 import com.example.asus.recruit.R;
 import com.example.asus.recruit.contract.RecruitContract;
 import com.example.asus.recruit.entity.HTTPResult;
+import com.example.asus.recruit.entity.ValidateResult;
 import com.example.asus.recruit.presenter.RecruitPresenter;
 import com.example.asus.recruit.widget.CustomNestRadioGroup;
 import com.example.asus.recruit.widget.OneKeyClearEditText;
@@ -275,6 +276,7 @@ public class RecruitActivity extends AppCompatActivity implements View.OnClickLi
             @Override
             public void gt3DialogOnError(String error) {    //...
                 Log.i("dsd","gt3DialogOnError");
+                gt3GeetestUtils.gt3TestFinish();
                 recruitPresenter.withoutValidate(editText_name.getText().toString(), editText_studentId.getText().toString(),
                         spinner_gender.getSelectedItem().toString(), editText_class.getText().toString(), editText_duty.getText().toString(),
                         editText_telephone.getText().toString(), "0", editText_email.getText().toString(),
