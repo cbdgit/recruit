@@ -17,8 +17,6 @@ public class LaunchActivity extends AppCompatActivity {
     private AlphaAnimation mAnimator;
     private ImageView mImageBefore;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
