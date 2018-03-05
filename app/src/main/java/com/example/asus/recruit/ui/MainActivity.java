@@ -1,6 +1,7 @@
 package com.example.asus.recruit.ui;
 
 import android.animation.ArgbEvaluator;
+import android.annotation.SuppressLint;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -8,10 +9,12 @@ import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
@@ -51,6 +54,15 @@ public class MainActivity extends AppCompatActivity {
     private BubbleView mBubbleView;
     private FragmentAdapter mAdapter;
     private Button mButton;
+    private Boolean mIsExit;
+    @SuppressLint("HandlerLeak")
+    private Handler mHandler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            mIsExit = false;
+        }
+    };
     private static final String TAG = "MainActivity";
 
     @Override
@@ -227,8 +239,28 @@ public class MainActivity extends AppCompatActivity {
         return statusBarHeight;
     }
 
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode==event.KEYCODE_BACK){
+            exit();
+            return false;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    private void exit(){
+        if (!mIsExit){
+            mIsExit = true;
+            Toast.makeText(getApplicationContext(),"再按一次退出程序!",Toast.LENGTH_SHORT).show();
+            mHandler.sendEmptyMessageDelayed(0,2000);
+        }else {
+            finish();
+            System.exit(0);
+        }
+    }
 
     private void initData(){
+        mIsExit = false;
         mFragments = new ArrayList<>();
 
         for (int i =0;i<4;i++){
