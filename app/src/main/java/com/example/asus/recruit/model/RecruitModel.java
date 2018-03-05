@@ -108,23 +108,23 @@ public class RecruitModel implements RecruitContract.IRecruitModel {
                 .subscribe(new Observer<Response<HTTPResult>>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-                        Log.d("RecruitModel","onSubscribe");
+                        Log.d("RecruitModel3","onSubscribe");
                     }
 
                     @Override
                     public void onNext(Response<HTTPResult> response) {
-                        Log.d("RecruitModel","onNext");
+                        Log.d("RecruitModel3","onNext");
 
-                        Log.d("RecruitModel", "cookie:" + MyApplication.getCookie());
+                        Log.d("RecruitModel3", "cookie:" + MyApplication.getCookie());
 
                         HTTPResult result = response.body();
                         if (result.getResult().equals("success")){
                             callBack.onSuccessful(response);
-                            Log.d("RecruitModel", "SUCCESS");
+                            Log.d("RecruitModel3", "SUCCESS");
                         }else {
                             callBack.onFailed(result.getMessage());
-                            Log.d("RecruitModel", "FAILED");
-                            Log.d("RecruitModel",result.getMessage());
+                            Log.d("RecruitModel3", "FAILED");
+                            Log.d("RecruitModel3zax",result.getMessage());
                         }
                     }
 

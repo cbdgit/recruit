@@ -46,7 +46,7 @@ public class RecruitPresenter implements RecruitContract.IRecruitPresenter {
                     @Override
                     public void onSuccessful(Response<ValidateResult> result) {
                         //mIRecruitView.onSuccess(result.body());
-                        mIRecruitView.onValidateSuccess(result.body());
+                        //mIRecruitView.onValidateSuccess(result.body());
                     }
 
                     @Override
