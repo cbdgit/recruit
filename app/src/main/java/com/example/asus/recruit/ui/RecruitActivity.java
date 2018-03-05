@@ -244,8 +244,8 @@ public class RecruitActivity extends AppCompatActivity implements View.OnClickLi
             public Map<String, String> gt3SecondResult() {
                 Map<String, String> map = new HashMap<String, String>();
                 //map.put("testkey","12315");
-                map.put("name", "aaa");
-                map.put("password", "123");
+                //map.put("name", "aaa");
+                //map.put("password", "123");
                 return map;
 
             }

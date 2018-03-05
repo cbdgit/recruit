@@ -40,7 +40,6 @@ public class LaunchActivity extends AppCompatActivity {
         mAnimator.setAnimationListener(new Animation.AnimationListener() {
             public void onAnimationEnd(Animation paramAnonymousAnimation) {
                 LaunchActivity.this.startActivity(new Intent(LaunchActivity.this, MainActivity.class));
-                LaunchActivity.this.overridePendingTransition(R.anim.slide_right, R.anim.slideto_left);
                 LaunchActivity.this.finish();
             }
 
