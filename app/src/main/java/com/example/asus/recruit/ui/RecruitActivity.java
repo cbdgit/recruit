@@ -44,7 +44,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class RecruitActivity extends AppCompatActivity implements View.OnClickListener, RecruitContract.IRecruitView, View.OnTouchListener{
+//public class RecruitActivity extends AppCompatActivity implements View.OnClickListener, RecruitContract.IRecruitView, View.OnTouchListener{
+public class RecruitActivity extends AppCompatActivity implements View.OnClickListener, RecruitContract.IRecruitView {
+
 
     private String TAG = "RecruitActivity";
     @BindView(R.id.imageView_back) ImageView imageView_back;
@@ -124,36 +126,39 @@ public class RecruitActivity extends AppCompatActivity implements View.OnClickLi
             }
         });
 
-        editText_introduce.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if (v.getId() == R.id.editText_introduce) {
-                    v.getParent().requestDisallowInterceptTouchEvent(true);
-                    switch (event.getAction()&MotionEvent.ACTION_MASK){
-                        case MotionEvent.ACTION_UP:
-                            v.getParent().requestDisallowInterceptTouchEvent(false);
-                            break;
-                    }
-                }
-                return false;
-            }
-        });
+        //editText滑动方法1
+//        editText_introduce.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//                if (v.getId() == R.id.editText_introduce) {
+//                    v.getParent().requestDisallowInterceptTouchEvent(true);
+//                    switch (event.getAction()&MotionEvent.ACTION_MASK){
+//                        case MotionEvent.ACTION_UP:
+//                            v.getParent().requestDisallowInterceptTouchEvent(false);
+//                            break;
+//                    }
+//                }
+//                return false;
+//            }
+//        });
+//
+//
+//        editText_wish.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//                if (v.getId() == R.id.editText_wish) {
+//                    v.getParent().requestDisallowInterceptTouchEvent(true);
+//                    switch (event.getAction()&MotionEvent.ACTION_MASK){
+//                        case MotionEvent.ACTION_UP:
+//                            v.getParent().requestDisallowInterceptTouchEvent(false);
+//                            break;
+//                    }
+//                }
+//                return false;
+//            }
+//        });
 
-
-        editText_wish.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if (v.getId() == R.id.editText_wish) {
-                    v.getParent().requestDisallowInterceptTouchEvent(true);
-                    switch (event.getAction()&MotionEvent.ACTION_MASK){
-                        case MotionEvent.ACTION_UP:
-                            v.getParent().requestDisallowInterceptTouchEvent(false);
-                            break;
-                    }
-                }
-                return false;
-            }
-        });
+//        editText_introduce.setOnTouchListener(this);
     }
 
 
@@ -335,9 +340,38 @@ public class RecruitActivity extends AppCompatActivity implements View.OnClickLi
         Toast.makeText(this, "报名失败 ，" + errMsg, Toast.LENGTH_SHORT).show();
     }
 
-    @Override
-    public boolean onTouch(View v, MotionEvent event) {
-        return false;
-    }
+//    @Override
+//    public boolean onTouch(View view, MotionEvent motionEvent) {
+//        //触摸的是EditText并且当前EditText可以滚动则将事件交给EditText处理；否则将事件交由其父类处理
+//        if ((view.getId() == R.id.editText_introduce && canVerticalScroll(editText_introduce))) {
+//            view.getParent().requestDisallowInterceptTouchEvent(true);
+//            if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+//                view.getParent().requestDisallowInterceptTouchEvent(false);
+//            }
+//        }
+//        return false;
+//    }
+
+//    /**
+//     * EditText竖直方向是否可以滚动
+//     * @param editText  需要判断的EditText
+//     * @return  true：可以滚动   false：不可以滚动
+//     */
+//    private boolean canVerticalScroll(EditText editText) {
+//        //滚动的距离
+//        int scrollY = editText.getScrollY();
+//        //控件内容的总高度
+//        int scrollRange = editText.getLayout().getHeight();
+//        //控件实际显示的高度
+//        int scrollExtent = editText.getHeight() - editText.getCompoundPaddingTop() -editText.getCompoundPaddingBottom();
+//        //控件内容总高度与实际显示高度的差值
+//        int scrollDifference = scrollRange - scrollExtent;
+//
+//        if(scrollDifference == 0) {
+//            return false;
+//        }
+//
+//        return (scrollY > 0) || (scrollY < scrollDifference - 1);
+//    }
 
 }
