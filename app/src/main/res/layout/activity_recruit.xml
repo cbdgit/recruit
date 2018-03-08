@@ -866,7 +866,8 @@
                         android:background="@null"
                         android:hint=""
                         android:textSize="15sp"
-                        android:scrollbars="vertical"/>
+                        android:scrollbars="vertical"
+                        android:maxLength="400"/>
 
                 </android.support.v7.widget.CardView>
 
@@ -923,7 +924,8 @@
                         android:maxLines="5"
                         android:hint=""
                         android:textSize="15sp"
-                        android:scrollbars="vertical"/>
+                        android:scrollbars="vertical"
+                        android:maxLength="200"/>
 
                 </android.support.v7.widget.CardView>
 
