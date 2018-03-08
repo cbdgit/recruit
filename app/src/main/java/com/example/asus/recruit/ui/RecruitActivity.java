@@ -52,6 +52,7 @@ public class RecruitActivity extends AppCompatActivity implements View.OnClickLi
     @BindView(R.id.imageView_back) ImageView imageView_back;
     @BindView(R.id.editText_name) EditText editText_name;
     @BindView(R.id.editText_studentId) OneKeyClearEditText editText_studentId;
+    @BindView(R.id.editText_college) EditText editText_college;
     @BindView(R.id.editText_class) EditText editText_class;
     @BindView(R.id.editText_duty) EditText editText_duty;
     @BindView(R.id.editText_email) EditText editText_email;
@@ -224,14 +225,14 @@ public class RecruitActivity extends AppCompatActivity implements View.OnClickLi
 
                         Log.d(TAG, res_json.getString("geetest_challenge") + res_json.getString("geetest_validate") +
                                 res_json.getString("geetest_seccode") + editText_name.getText().toString() + editText_studentId.getText().toString() +
-                                spinner_gender.getSelectedItem().toString() + editText_class.getText().toString() + editText_duty.getText().toString() +
-                                editText_telephone.getText().toString() + "0" + editText_email.getText().toString() +
+                                spinner_gender.getSelectedItem().toString() + editText_college.getText().toString() + editText_class.getText().toString() +
+                                editText_duty.getText().toString() + editText_telephone.getText().toString() + "0" + editText_email.getText().toString() +
                                 editText_qq.getText().toString() + ((RadioButton)findViewById(radioGroup_direction.getCheckedRadioButtonId())).getText().toString() +
                                 editText_skill.getText().toString() + editText_introduce.getText().toString() + editText_wish.getText().toString());
 
                         recruitPresenter.commit(res_json.getString("geetest_challenge"), res_json.getString("geetest_validate"),
                                 res_json.getString("geetest_seccode"), editText_name.getText().toString(), editText_studentId.getText().toString(),
-                                spinner_gender.getSelectedItem().toString(), editText_class.getText().toString(), editText_duty.getText().toString(),
+                                spinner_gender.getSelectedItem().toString(), editText_college.getText().toString() + editText_class.getText().toString(), editText_duty.getText().toString(),
                                 editText_telephone.getText().toString(), "0", editText_email.getText().toString(),
                                 editText_qq.getText().toString(), ((RadioButton)findViewById(radioGroup_direction.getCheckedRadioButtonId())).getText().toString(),
                                 editText_skill.getText().toString(), editText_introduce.getText().toString(), editText_wish.getText().toString());
@@ -283,7 +284,7 @@ public class RecruitActivity extends AppCompatActivity implements View.OnClickLi
                 Log.i("dsd","gt3DialogOnError");
                 gt3GeetestUtils.gt3TestFinish();
                 recruitPresenter.withoutValidate(editText_name.getText().toString(), editText_studentId.getText().toString(),
-                        spinner_gender.getSelectedItem().toString(), editText_class.getText().toString(), editText_duty.getText().toString(),
+                        spinner_gender.getSelectedItem().toString(), editText_college + editText_class.getText().toString(), editText_duty.getText().toString(),
                         editText_telephone.getText().toString(), "0", editText_email.getText().toString(),
                         editText_qq.getText().toString(), ((RadioButton)findViewById(radioGroup_direction.getCheckedRadioButtonId())).getText().toString(),
                         editText_skill.getText().toString(), editText_introduce.getText().toString(), editText_wish.getText().toString());
@@ -316,7 +317,7 @@ public class RecruitActivity extends AppCompatActivity implements View.OnClickLi
                 finish();
                 break;
             case R.id.button_confirm:
-                if (TextUtils.isEmpty(editText_name.getText()) || TextUtils.isEmpty(editText_studentId.getText()) || TextUtils.isEmpty(editText_class.getText()) ||
+                if (TextUtils.isEmpty(editText_name.getText()) || TextUtils.isEmpty(editText_studentId.getText()) || TextUtils.isEmpty(editText_college.getText()) || TextUtils.isEmpty(editText_class.getText()) ||
                         TextUtils.isEmpty(editText_duty.getText()) || TextUtils.isEmpty(editText_telephone.getText()) || TextUtils.isEmpty(editText_email.getText()) ||
                         TextUtils.isEmpty(editText_qq.getText()) || TextUtils.isEmpty(editText_skill.getText()) || TextUtils.isEmpty(editText_introduce.getText()) ||
                         TextUtils.isEmpty(editText_wish.getText())) {
