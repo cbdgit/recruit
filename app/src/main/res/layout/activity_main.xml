@@ -51,7 +51,7 @@
 
 
             <TextView
-                android:background="@drawable/iv_title"
+                android:background="@drawable/title"
                 android:layout_width="150dp"
                 android:layout_height="55dp"
                 android:layout_centerInParent="true"
@@ -61,7 +61,6 @@
 
         </RelativeLayout>
 
-        <include layout="@layout/view_bubble" />
 
     </LinearLayout>
 

@@ -9,6 +9,7 @@ import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.util.Pair;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,8 +47,17 @@ public class CommonFragment extends Fragment implements DragLayout.GotoDetailLis
     private String mContent;
     private int mImageId;
     private DragLayout mDragLayout;
+    private static final String TAG = "CommonFragment";
 
 
+
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+    }
 
     @Nullable
     @Override
@@ -59,6 +69,29 @@ public class CommonFragment extends Fragment implements DragLayout.GotoDetailLis
         return rootView;
     }
 
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("name",mName);
+        outState.putString("summary",mSummary);
+        outState.putString("content",mContent);
+        outState.putInt("id",mImageId);
+    }
+
+    @Override
+    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
+        super.onViewStateRestored(savedInstanceState);
+        if (savedInstanceState!=null){
+            mImageId = savedInstanceState.getInt("id");
+            mName = savedInstanceState.getString("name");
+            mSummary = savedInstanceState.getString("summary");
+            mContent = savedInstanceState.getString("content");
+            mImage.setImageResource(mImageId);
+            mTextName.setText(mName);
+            mTextGroupName.setText(mName);
+            mTextSummary.setText(mSummary);
+        }
+    }
 
     private void initView(View view) {
         mDragLayout = view.findViewById(R.id.drag_layout);

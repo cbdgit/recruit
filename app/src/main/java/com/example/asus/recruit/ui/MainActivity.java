@@ -13,22 +13,24 @@ import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
+
 
 
 import com.example.asus.recruit.R;
 import com.example.asus.recruit.adapter.FragmentAdapter;
 import com.example.asus.recruit.widget.CustPagerTransformer;
 
-import com.yasic.bubbleview.BubbleView;
+
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
+
 import android.graphics.Color;
 import android.os.Build;
 
@@ -36,10 +38,9 @@ import android.support.v4.view.ViewPager;
 
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.ImageView;
+
 import android.widget.Toast;
 
-import tyrantgit.explosionfield.ExplosionField;
 
 import static com.example.asus.recruit.configs.Content.CONTENT;
 import static com.example.asus.recruit.configs.Content.IMAGE_ID;
@@ -51,12 +52,12 @@ public class MainActivity extends AppCompatActivity {
     private View mPositionView;
     private ViewPager mViewPager;
     private List<CommonFragment> mFragments;
-    private BubbleView mBubbleView;
+
     private FragmentAdapter mAdapter;
     private Button mButton;
     private Boolean mIsExit;
     @SuppressLint("HandlerLeak")
-    private Handler mHandler = new Handler(){
+    private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
@@ -70,19 +71,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-       initView();
+        initView();
 
-       initData();
-
-
-
+        initData();
 
 
     }
 
 
-
-    private void initView(){
+    private void initView() {
 
         //设置沉浸式状态栏
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
@@ -99,115 +96,72 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        mViewPager = (ViewPager)findViewById(R.id.viewpager);
+        mViewPager = (ViewPager) findViewById(R.id.viewpager);
         mPositionView = findViewById(R.id.position_view);
-        mBubbleView = (BubbleView) findViewById(R.id.BubbleView);
-        mButton = (Button)findViewById(R.id.iv_baoming);
-       // final ExplosionField field = ExplosionField.attach2Window(this);
+        mButton = (Button) findViewById(R.id.iv_baoming);
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // field.explode(mImageView);
-                Intent intent = new Intent(MainActivity.this,RecruitActivity.class);
+                Intent intent = new Intent(MainActivity.this, RecruitActivity.class);
                 startActivity(intent);
-
-
 
 
             }
         });
 
 
-
-
-
-
-
-
-
-
-       initBubbleView();
+        initBubbleView();
         dealStatusBar();
 
     }
 
 
-
     /**
      * 初始BubbleView的设置
      */
-    private void initBubbleView(){
-        List<Drawable> drawableList = new ArrayList<>();
-        drawableList.add(getResources().getDrawable(R.drawable.bubble_two));
-        drawableList.add(getResources().getDrawable(R.drawable.bubble_two));
-        drawableList.add(getResources().getDrawable(R.drawable.bubble_two));
-        drawableList.add(getResources().getDrawable(R.drawable.bubble_two));
-        drawableList.add(getResources().getDrawable(R.drawable.bubble_two));
-        drawableList.add(getResources().getDrawable(R.drawable.bubble_two));
-        drawableList.add(getResources().getDrawable(R.drawable.bubble_two));
-        drawableList.add(getResources().getDrawable(R.drawable.bubble_two));
-        drawableList.add(getResources().getDrawable(R.drawable.bubble_two));
-        mBubbleView.setDrawableList(drawableList);
-        mBubbleView.setMaxHeartNum(15);
-        mBubbleView.setMinHeartNum(5);
-        mBubbleView.setBottomPadding(40);
-        mBubbleView.setItemViewWH(90,90);
-        ViewTreeObserver vto = mBubbleView.getViewTreeObserver();
-        vto.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener(){
+    private void initBubbleView() {
+
+
+
+        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+
+            GradientDrawable mBackground = (GradientDrawable) mButton.getBackground();
+
             @Override
-            public void onGlobalLayout() {
-                final int height =mBubbleView.getHeight();
-                final int width =mBubbleView.getWidth();
-                mBubbleView.getViewTreeObserver().removeGlobalOnLayoutListener(this);
-                if (height!=0&&width!=0){
-
-             //   mBubbleView.startAnimation(width,height);
-                    mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-
-                        GradientDrawable myGrad = (GradientDrawable)mButton.getBackground();
-                        @Override
-                        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                            ArgbEvaluator evaluator = new ArgbEvaluator(); // ARGB求值器
-                            int evaluate = 0x00FFFFFF; // 初始默认颜色（透明白）
-                            if (position == 0) {
-                                evaluate = (Integer) evaluator.evaluate(positionOffset, 0XFF5d8cb0, 0XFFbc67fd); // 根据positionOffset和第0页~第1页的颜色转换范围取颜色值
-                            }else if(position == 1){
-                                evaluate = (Integer) evaluator.evaluate(positionOffset, 0XFFbc67fd, 0XFF5ca701); // 根据positionOffset和第1页~第2页的颜色转换范围取颜色值
-                            } else if(position == 2){
-                                evaluate = (Integer) evaluator.evaluate(positionOffset, 0XFF5ca701, 0XFF0a2f53); // 根据positionOffset和第2页~第3页的颜色转换范围取颜色值
-                            } else{
-                                evaluate = 0XFF0a2f53; // 最终第3页的颜色
-                            }
-
-                            myGrad.setColor(evaluate);
-
-
-                        }
-
-                        @Override
-                        public void onPageSelected(int position) {
-
-                            //mBubbleView.startAnimation(width,height);
-                        }
-
-                        @Override
-                        public void onPageScrollStateChanged(int state) {
-
-                        }
-                    });
-
-
-
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                ArgbEvaluator evaluator = new ArgbEvaluator(); // ARGB求值器
+                int evaluate = 0x00FFFFFF; // 初始默认颜色（透明白）
+                if (position == 0) {
+                    evaluate = (Integer) evaluator.evaluate(positionOffset, 0XFF294b71, 0XFFbc67fd); // 根据positionOffset和第0页~第1页的颜色转换范围取颜色值
+                } else if (position == 1) {
+                    evaluate = (Integer) evaluator.evaluate(positionOffset, 0XFFbc67fd, 0XFF5ca701); // 根据positionOffset和第1页~第2页的颜色转换范围取颜色值
+                } else if (position == 2) {
+                    evaluate = (Integer) evaluator.evaluate(positionOffset, 0XFF5ca701, 0XFF88e6f6); // 根据positionOffset和第2页~第3页的颜色转换范围取颜色值
+                } else if (position==3){
+                    evaluate = (Integer)evaluator.evaluate(positionOffset,0XFF88e6f6,0XFF007eb4);//
+                }else {
+                    evaluate = 0XFF007eb4;
                 }
+
+                mBackground.setColor(evaluate);
+
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
             }
         });
 
 
-
     }
-
-
-
 
 
     /**
@@ -241,43 +195,41 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode==event.KEYCODE_BACK){
+        if (keyCode == event.KEYCODE_BACK) {
             exit();
             return false;
         }
         return super.onKeyDown(keyCode, event);
     }
 
-    private void exit(){
-        if (!mIsExit){
+    private void exit() {
+        if (!mIsExit) {
             mIsExit = true;
-            Toast.makeText(getApplicationContext(),"再按一次退出程序!",Toast.LENGTH_SHORT).show();
-            mHandler.sendEmptyMessageDelayed(0,2000);
-        }else {
+            Toast.makeText(getApplicationContext(), "再按一次退出程序!", Toast.LENGTH_SHORT).show();
+            mHandler.sendEmptyMessageDelayed(0, 2000);
+        } else {
             finish();
             System.exit(0);
         }
     }
 
-    private void initData(){
+    private void initData() {
         mIsExit = false;
         mFragments = new ArrayList<>();
 
-        for (int i =0;i<4;i++){
+        for (int i = 0; i < 5; i++) {
             CommonFragment fragment = new CommonFragment();
-            fragment.bindData(IMAGE_ID[i],NAME[i],SUMMARY[i],CONTENT[i]);
+            fragment.bindData(IMAGE_ID[i], NAME[i], SUMMARY[i], CONTENT[i]);
             mFragments.add(fragment);
 
         }
-        mAdapter = new FragmentAdapter(getSupportFragmentManager(),mFragments);
+        mAdapter = new FragmentAdapter(getSupportFragmentManager(), mFragments);
         mViewPager.setAdapter(mAdapter);
-        mViewPager.setPageMargin(-40);
+        mViewPager.setPageMargin(-50);
         mViewPager.setPageTransformer(false, new CustPagerTransformer(this));
 
 
-
     }
-
 
 
 }

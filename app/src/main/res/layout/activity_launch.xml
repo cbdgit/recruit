@@ -31,7 +31,7 @@
         android:layout_marginBottom="5.0dip"
         android:layout_marginLeft="70.0dip"
         android:layout_marginRight="70.0dip"
-        android:src="@drawable/iv_title"/>
+        android:src="@drawable/title"/>
 
     <View
         android:id="@+id/line"

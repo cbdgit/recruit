@@ -4,13 +4,13 @@ import com.example.asus.recruit.R;
 
 
 public class Content {
-    public static final String[]  NAME = {"Java 后台","Web 前端","Android 移动","关于研发"};
-    public static final String[]  SUMMARY = {"主要进行Java后台服务器开发如JavaWeb应用服务器开发和维护。","基于HTML/CSS/JS开发，专注于网站界面以及提供更好的视觉冲击和用户体验。"
-            ,"专注基于Java语言App开发与Android 前沿技术的专研与发展。","研发"};
+    public static final String[]  NAME = {"Java 后台","Web 前端","Android 移动","大数据","关于研发"};
+    public static final String[]  SUMMARY = {"   主要进行Java后台服务器开发如JavaWeb应用服务器开发和维护。","   基于HTML/CSS/JS开发，专注于网站界面以及提供更好的视觉冲击和用户体验。"
+            ,"   专注基于Java语言App开发与Android 前沿技术的专研与发展。","大数据balabalabala","   研发中心是计算机的学院的一个老牌团队，至今已有17年的历史。"};
 
-    public static final int[] IMAGE_ID = {R.drawable.houtai,R.drawable.qianduan,R.drawable.android_1,R.drawable.yanfa};
+    public static final int[] IMAGE_ID = {R.drawable.houtai2,R.drawable.qianduan,R.drawable.android,R.drawable.big_data,R.drawable.yanfa};
     public static final String[] CONTENT = {"      Java后台开发" +
-            "小组一直致力于Javaweb开发,专注" +
+            "小组一直致力于JavaWeb开发,专注" +
             "于各种前沿的Java技术学习和实践能力的结合," +
             "主要任务是进行业务逻辑的处理和与数据库、服" +
             "务器等的交互。\n\n" +
@@ -76,25 +76,35 @@ public class Content {
             "      假如你热爱技术、热爱 Android,拥有扎实的C" +
             "语言基础(有Java或 Android基础更佳),善于自" +
             "主钻研,有责任感并有良好的团队合作精神,那" +
-            "么,你正是我们苦苦寻找的小伙伴!加入我们吧," +
+            "么,你正是我们苦苦寻找的小伙伴!\n\n"+
+            "      加入我们吧," +
             "不仅能感受浓厚的学习氛围、还能积累项目经" +
-            "验、更有可能获得师兄的内推机会哟~",
+            "验、更有可能获得师兄的内推机会哟~","大数据balabalabala" +
+            "balabalabalabalabalabalabalabalabalabalabalabala" +
+            "balabalabalabalabalabalabalabalabalabalabalabala" +
+            "balabalabalabalabalabalabalabalabalabalabalabalabalabalabala" +
+            "balabalabalabalabalabalabalabalabalabalabalabalabalabalabala" +
+            "balabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabala" +
+            "balabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabala" +
+            "balabalabalabalabalabalabalabalabalabalabalabalabalabalabala" +
+            "balabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabala"
+            ,
 
 
 
 
 
-            "2001年,研发中心成立," +
+            "      2001年,研发中心成立," +
             "至今已经16年历史," +
-            "是计算机学院的一个老牌团队。" +
-            "这么多年来," +
+            "是计算机学院的一个老牌团队。\n\n" +
+            "      这么多年来," +
             "团队成员一直致力于互联网、安卓手机应用" +
             "数据库以及图形图像等技术的学习和开发。" +
             "我们在基本专业课程和技能训练的基础上," +
             "通过项目过程的进一步学习," +
             "提高自身解决问题的能力、" +
-            "学习能力以及团队协作能力。" +
-            "团队已有大批师兄师姐进入了百度、腾讯、" +
+            "学习能力以及团队协作能力。\n\n" +
+            "      团队已有大批师兄师姐进入了百度、腾讯、" +
             "华为、网易、阿里巴巴、金山等公司进行工作" +
             "这里有优秀的学习榜样、丰富的学习资源" +
             "良好的学习氛围、珍贵的项目经验," +
@@ -102,8 +112,8 @@ public class Content {
             "如果你有出色的学习能力、" +
             "对知识有近乎渴望的追求" +
             "以及良好的抗压力和团队协作力" +
-            "那就加入我们吧!" +
-            "在这里和你的队友们" +
+            "那就加入我们吧!\n\n" +
+            "      在这里和你的队友们" +
             "起打造属于你们的BAT之路!"};
 
 }

@@ -28,8 +28,6 @@ import static com.example.asus.recruit.configs.Transtion.YANFA_TRANSITION_NAME;
 
 public class DetailActivity extends AppCompatActivity {
     private ImageView mImage;
-    private TextView mTextYanFa;
-    private TextView mTextGroupName;
     private TextView mTextName;
     private TextView mTextSummary;
 
@@ -61,15 +59,11 @@ public class DetailActivity extends AppCompatActivity {
 
 
         mImage = findViewById(R.id.image);
-        mTextYanFa = findViewById(R.id.tv_yanfa);
         mTextName = findViewById(R.id.tv_name);
-        mTextGroupName = findViewById(R.id.tv_group_name);
         mTextSummary = findViewById(R.id.tv_summary);
 
         ViewCompat.setTransitionName(mImage,IMAGE_TRANSITION_NAME);
-        ViewCompat.setTransitionName(mTextGroupName,GROUPNAME_TRANSITION_NAME);
         ViewCompat.setTransitionName(mTextName, NAME_TRANSITION_NAME);
-        ViewCompat.setTransitionName(mTextYanFa, YANFA_TRANSITION_NAME);
         ViewCompat.setTransitionName(mTextSummary,SUMMARY_TRANSITION_NAME);
 
 
@@ -83,7 +77,6 @@ public class DetailActivity extends AppCompatActivity {
 
         mImage.setImageResource(id);
         mTextName.setText(name);
-        mTextGroupName.setText(name);
         mTextSummary.setText(content);
     }
 
