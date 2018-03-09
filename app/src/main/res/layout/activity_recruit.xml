@@ -1020,7 +1020,7 @@
                             android:layout_height="50dp"
                             android:background="@color/colorWhite"
                             android:textSize="17sp"
-                            android:text="确     认"/>
+                            android:text="开启你的研发之旅"/>
 
                     </LinearLayout>
 
