@@ -90,11 +90,11 @@ public class CommonFragment extends Fragment implements DragLayout.GotoDetailLis
             mSummary = savedInstanceState.getString("summary");
             mContent = savedInstanceState.getString("content");
 
-            mImage.setImageResource(mImageId);
-//            if (!mName.equals("Java 后台")){
-//                Glide.with(getActivity()).load(mImageId).into(mImage);
-//
-//            }
+        //    mImage.setImageResource(mImageId);
+            if (!mName.equals("Java 后台")){
+                Glide.with(getActivity()).load(mImageId).into(mImage);
+
+            }
 
             mTextName.setText(mName);
             mTextGroupName.setText(mName);
@@ -110,11 +110,11 @@ public class CommonFragment extends Fragment implements DragLayout.GotoDetailLis
         mTextGroupName = mDragLayout.findViewById(R.id.tv_group_name);
 
 
-            mImage.setImageResource(mImageId);
-//        if (!mName.equals("Java 后台")){
-//            Glide.with(getActivity()).load(mImageId).into(mImage);
-//
-//        }
+         //   mImage.setImageResource(mImageId);
+        if (!mName.equals("Java 后台")){
+            Glide.with(getActivity()).load(mImageId).into(mImage);
+
+        }
 
 
 

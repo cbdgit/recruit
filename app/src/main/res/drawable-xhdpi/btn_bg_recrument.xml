@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+
+
+    <!-- 渐变 -->
+    <gradient
+        android:angle="180"
+        android:centerX="0"
+        android:centerY="0"
+        android:endColor="@android:color/black"
+        android:gradientRadius="180"
+        android:startColor="@android:color/white"
+        android:type="radial"
+        android:useLevel="true"/>
+
+
+    <!-- 大小 -->
+    <size
+        android:width="100dp"
+        android:height="100dp"/><!-- 宽度和高度 -->
+
+    <!-- 填充 -->
+    <solid
+        android:color="@color/colorJava"
+        /><!-- 填充的颜色 -->
+
+
+</shape>
