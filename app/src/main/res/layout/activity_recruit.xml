@@ -4,13 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/colorTextBlue">
+    android:background="@color/colorJava">
 
     <ImageView
         android:id="@+id/imageView_back"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="12dp"
         android:src="@drawable/ic_keyboard_arrow_left_white_48dp"/>
 
     <ImageView
@@ -18,8 +18,8 @@
         android:layout_width="110dp"
         android:layout_height="75dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
-        android:src="@drawable/yanfa"/>
+        android:layout_marginTop="20dp"
+        android:src="@drawable/title_yanfa"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -765,22 +765,24 @@
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal">
 
-                                <RadioButton
-                                    android:id="@+id/radioButton_web"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:buttonTint="@color/colorTextBlue"
-                                    android:text="Web前端开发"
-                                    android:checked="true"
-                                    android:tag="#66c3fe"/>
+
 
                                 <RadioButton
+                                    android:checked="true"
+
                                     android:id="@+id/radioButton_java"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:buttonTint="@color/PaleVioletRed1"
+                                    android:buttonTint="@color/colorJava"
                                     android:text="Java后台开发"
-                                    android:tag="#FF82AB"/>
+                                    android:tag="@color/colorJava"/>
+                                <RadioButton
+                                android:id="@+id/radioButton_web"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:buttonTint="@color/colorWeb"
+                                android:text="Web前端开发"
+                                android:tag="@color/colorWeb"/>
 
                             </LinearLayout>
 
@@ -793,17 +795,17 @@
                                     android:id="@+id/radioButton_android"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:buttonTint="@color/SpringGreen2"
+                                    android:buttonTint="@color/colorAndroid"
                                     android:text="Android移动开发"
-                                    android:tag="#00EE76"/>
+                                    android:tag="@color/colorAndroid"/>
 
                                 <RadioButton
                                     android:id="@+id/radioButton_bigData"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:buttonTint="@color/DarkGoldenrod1"
+                                    android:buttonTint="@color/colorBigData"
                                     android:text="大数据开发"
-                                    android:tag="#FFB90F"/>
+                                    android:tag="@color/colorBigData"/>
 
                             </LinearLayout>
 
@@ -1012,7 +1014,7 @@
                         android:id="@+id/linearLayout_confirm"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/web"
+                        android:background="@color/colorJava"
                         android:padding="5dp">
 
                         <Button

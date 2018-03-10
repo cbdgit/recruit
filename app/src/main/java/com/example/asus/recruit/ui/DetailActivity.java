@@ -13,6 +13,7 @@ import android.widget.ImageView;
 
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.asus.recruit.R;
 import com.example.asus.recruit.configs.Extra;
 
@@ -75,7 +76,7 @@ public class DetailActivity extends AppCompatActivity {
         String name  =getIntent().getStringExtra(NAME);
         String content = getIntent().getStringExtra(Extra.CONTENT);
 
-        mImage.setImageResource(id);
+        Glide.with(this).load(id).into(mImage);
         mTextName.setText(name);
         mTextSummary.setText(content);
     }

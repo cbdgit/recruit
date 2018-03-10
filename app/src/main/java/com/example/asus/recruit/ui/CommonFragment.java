@@ -17,6 +17,7 @@ import android.widget.ImageView;
 
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.asus.recruit.R;
 import com.example.asus.recruit.widget.DragLayout;
 
@@ -37,7 +38,7 @@ import static com.example.asus.recruit.configs.Transtion.YANFA_TRANSITION_NAME;
 
 public class CommonFragment extends Fragment implements DragLayout.GotoDetailListener,View.OnClickListener {
     private ImageView mImage;
-    private TextView mTextYanFa;
+
     private TextView mTextGroupName;
     private TextView mTextName;
     private TextView mTextSummary;
@@ -46,6 +47,7 @@ public class CommonFragment extends Fragment implements DragLayout.GotoDetailLis
     private String mSummary;
     private String mContent;
     private int mImageId;
+    private int mImageLongId;
     private DragLayout mDragLayout;
     private static final String TAG = "CommonFragment";
 
@@ -83,10 +85,17 @@ public class CommonFragment extends Fragment implements DragLayout.GotoDetailLis
         super.onViewStateRestored(savedInstanceState);
         if (savedInstanceState!=null){
             mImageId = savedInstanceState.getInt("id");
+            mImageLongId = savedInstanceState.getInt("longId");
             mName = savedInstanceState.getString("name");
             mSummary = savedInstanceState.getString("summary");
             mContent = savedInstanceState.getString("content");
-            mImage.setImageResource(mImageId);
+
+//            mImage.setImageResource(mImageId);
+            if (!mName.equals("Java 后台")){
+                Glide.with(getActivity()).load(mImageId).into(mImage);
+
+            }
+
             mTextName.setText(mName);
             mTextGroupName.setText(mName);
             mTextSummary.setText(mSummary);
@@ -98,14 +107,21 @@ public class CommonFragment extends Fragment implements DragLayout.GotoDetailLis
         mImage = (ImageView) mDragLayout.findViewById(R.id.image);
         mTextName = mDragLayout.findViewById(R.id.tv_name);
         mTextSummary = mDragLayout.findViewById(R.id.tv_summary);
-        mTextYanFa = mDragLayout.findViewById(R.id.tv_yanfa);
         mTextGroupName = mDragLayout.findViewById(R.id.tv_group_name);
 
 
-        mImage.setImageResource(mImageId);
+//            mImage.setImageResource(mImageId);
+        if (!mName.equals("Java 后台")){
+            Glide.with(getActivity()).load(mImageId).into(mImage);
+
+        }
+
+
+
         mTextName.setText(mName);
         mTextGroupName.setText(mName);
         mTextSummary.setText(mSummary);
+        mDragLayout.setTextViewAnimation(mTextGroupName);
 
         mDragLayout.setGotoDetailListener(this);
         mTextSummary.setOnClickListener(this);
@@ -118,11 +134,10 @@ public class CommonFragment extends Fragment implements DragLayout.GotoDetailLis
         Activity activity = (Activity) getContext();
         ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity,
                 new Pair(mImage, IMAGE_TRANSITION_NAME),
-                new Pair(mTextGroupName, GROUPNAME_TRANSITION_NAME),
                 new Pair(mTextName, NAME_TRANSITION_NAME),
-                new Pair(mTextSummary, SUMMARY_TRANSITION_NAME),
-                new Pair(mTextYanFa, YANFA_TRANSITION_NAME)
-                );
+                new Pair(mTextSummary, SUMMARY_TRANSITION_NAME))
+
+                ;
 
 
         Intent intent = new Intent(activity, DetailActivity.class);
@@ -133,8 +148,9 @@ public class CommonFragment extends Fragment implements DragLayout.GotoDetailLis
         ActivityCompat.startActivity(activity, intent, options.toBundle());
     }
 
-    public void bindData(int imageId, String name, String sum,String content) {
+    public void bindData(int imageId,int imageLongId, String name, String sum,String content) {
        this.mImageId = imageId;
+       this.mImageLongId = imageLongId;
        this.mName = name;
        this.mSummary = sum;
        this.mContent = content;
@@ -150,9 +166,9 @@ public class CommonFragment extends Fragment implements DragLayout.GotoDetailLis
                 new Pair(mImage, IMAGE_TRANSITION_NAME),
                 new Pair(mTextGroupName, GROUPNAME_TRANSITION_NAME),
                 new Pair(mTextName, NAME_TRANSITION_NAME),
-                new Pair(mTextSummary, SUMMARY_TRANSITION_NAME),
-                new Pair(mTextYanFa, YANFA_TRANSITION_NAME)
-               );
+                new Pair(mTextSummary, SUMMARY_TRANSITION_NAME))
+
+               ;
 
 
         Intent intent = new Intent(activity, DetailActivity.class);

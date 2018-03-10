@@ -44,6 +44,7 @@ import android.widget.Toast;
 
 import static com.example.asus.recruit.configs.Content.CONTENT;
 import static com.example.asus.recruit.configs.Content.IMAGE_ID;
+import static com.example.asus.recruit.configs.Content.IMAGE_LONG_ID;
 import static com.example.asus.recruit.configs.Content.NAME;
 import static com.example.asus.recruit.configs.Content.SUMMARY;
 
@@ -110,18 +111,16 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        initBubbleView();
+        setImageViewchange();
         dealStatusBar();
 
     }
 
 
     /**
-     * 初始BubbleView的设置
+     * 改变ImageView 的颜色
      */
-    private void initBubbleView() {
-
-
+    private void setImageViewchange() {
 
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
@@ -132,15 +131,16 @@ public class MainActivity extends AppCompatActivity {
                 ArgbEvaluator evaluator = new ArgbEvaluator(); // ARGB求值器
                 int evaluate = 0x00FFFFFF; // 初始默认颜色（透明白）
                 if (position == 0) {
-                    evaluate = (Integer) evaluator.evaluate(positionOffset, 0XFF294b71, 0XFFbc67fd); // 根据positionOffset和第0页~第1页的颜色转换范围取颜色值
+                    evaluate = (Integer) evaluator.evaluate(positionOffset, 0XFF2d3e50, 0XFFbc67fd); // 根据positionOffset和第0页~第1页的颜色转换范围取颜色值
                 } else if (position == 1) {
-                    evaluate = (Integer) evaluator.evaluate(positionOffset, 0XFFbc67fd, 0XFF5ca701); // 根据positionOffset和第1页~第2页的颜色转换范围取颜色值
+                    evaluate = (Integer) evaluator.evaluate(positionOffset, 0XFFbc67fd, 0XFF72b701); // 根据positionOffset和第1页~第2页的颜色转换范围取颜色值
                 } else if (position == 2) {
-                    evaluate = (Integer) evaluator.evaluate(positionOffset, 0XFF5ca701, 0XFF88e6f6); // 根据positionOffset和第2页~第3页的颜色转换范围取颜色值
+                    evaluate = (Integer) evaluator.evaluate(positionOffset, 0XFF72b701
+                            , 0XFFafa2ab); // 根据positionOffset和第2页~第3页的颜色转换范围取颜色值
                 } else if (position==3){
-                    evaluate = (Integer)evaluator.evaluate(positionOffset,0XFF88e6f6,0XFF007eb4);//
+                    evaluate = (Integer)evaluator.evaluate(positionOffset,0XFFafa2ab,0XFFfdfdfe);//
                 }else {
-                    evaluate = 0XFF007eb4;
+                    evaluate = 0XFFfdfdfe;
                 }
 
                 mBackground.setColor(evaluate);
@@ -219,7 +219,7 @@ public class MainActivity extends AppCompatActivity {
 
         for (int i = 0; i < 5; i++) {
             CommonFragment fragment = new CommonFragment();
-            fragment.bindData(IMAGE_ID[i], NAME[i], SUMMARY[i], CONTENT[i]);
+            fragment.bindData(IMAGE_ID[i],IMAGE_LONG_ID[i], NAME[i], SUMMARY[i], CONTENT[i]);
             mFragments.add(fragment);
 
         }

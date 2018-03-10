@@ -6,6 +6,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.graphics.drawable.TransitionDrawable;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -85,6 +87,11 @@ public class RecruitActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);   //失效
+        requestWindowFeature(1);
+        if (Build.VERSION.SDK_INT >= 19) {
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+        }
         setContentView(R.layout.activity_recruit);
         ButterKnife.bind(this);
         initView();
@@ -101,7 +108,7 @@ public class RecruitActivity extends AppCompatActivity implements View.OnClickLi
 //        changeColor(Color.parseColor("#66c3fe"));
 
 //        bgDrawable = getResources().getColor(R.color.web)
-        bgDrawable = new ColorDrawable(getResources().getColor(R.color.web));
+        bgDrawable = new ColorDrawable(getResources().getColor(R.color.colorJava));
 
         radioGroup_direction.setOnCheckedChangeListener(new CustomNestRadioGroup.OnCheckedChangeListener() {
             @Override
@@ -109,20 +116,20 @@ public class RecruitActivity extends AppCompatActivity implements View.OnClickLi
 
                 if (checkedId == R.id.radioButton_web) {
                     Log.d("RecruitActivity", "web");
-                    changeColor(Color.parseColor("#66c3fe"));
-                    linearLayout_confirm.setBackgroundColor(getResources().getColor(R.color.web));
+                    changeColor(Color.parseColor("#bc67fd"));
+                    linearLayout_confirm.setBackgroundColor(getResources().getColor(R.color.colorWeb));
                 }else if (checkedId == R.id.radioButton_java) {
                     Log.d("RecruitActivity", "java");
-                    changeColor(Color.parseColor("#FF82AB"));
-                    linearLayout_confirm.setBackgroundColor(getResources().getColor(R.color.java));
+                    changeColor(Color.parseColor("#2d3e50"));
+                    linearLayout_confirm.setBackgroundColor(getResources().getColor(R.color.colorJava));
                 }else if (checkedId == R.id.radioButton_android) {
                     Log.d("RecruitActivity", "android");
-                    changeColor(Color.parseColor("#00EE76"));
-                    linearLayout_confirm.setBackgroundColor(getResources().getColor(R.color.android));
+                    changeColor(Color.parseColor("#72b701"));
+                    linearLayout_confirm.setBackgroundColor(getResources().getColor(R.color.colorAndroid));
                 }else if (checkedId == R.id.radioButton_bigData) {
                     Log.d("RecruitActivity", "bigData");
-                    changeColor(Color.parseColor("#FFB90F"));
-                    linearLayout_confirm.setBackgroundColor(getResources().getColor(R.color.bigData));
+                    changeColor(Color.parseColor("#afa2ab"));
+                    linearLayout_confirm.setBackgroundColor(getResources().getColor(R.color.colorBigData));
                 }
             }
         });
@@ -338,7 +345,7 @@ public class RecruitActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onFailed(String errMsg) {
-        Toast.makeText(this, "报名失败 ，" + errMsg, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "报名失败 ，请稍后再试！" , Toast.LENGTH_SHORT).show();
     }
 
 //    @Override

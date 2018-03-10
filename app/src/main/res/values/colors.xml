@@ -2,14 +2,15 @@
 <resources>
     <color name="colorPrimary">#000000</color>
     <color name="colorPrimaryDark">#070a1a</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#3c3f41</color>
     <color name="colorBlack">#000000</color>
     <color name="colorWhite">#fdfdfe</color>
-    <color name="colorJava">#294b71</color>
+    <color name="colorJava">#2d3e50</color>
     <color name="colorWeb">#bc67fd</color>
-    <color name="colorAndroid">#5ca701</color>
-    <color name="colorBigData">#88e6f6</color>
-    <color name="colorRdc">#007eb4</color>
+    <color name="colorAndroid">#72b701</color>
+    <color name="colorBigData">#afa2ab</color>
+    <color name="colorRdc">#fdfdfe</color>
+    <color name="colorText">#66c2fd</color>
     <color name="colorTextBlue">#66c3fe</color>   <!--前端-->
     <color name="white">#FFFFFF</color>
     <color name="Chartreuse1">#7FFF00</color>

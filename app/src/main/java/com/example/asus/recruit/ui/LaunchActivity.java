@@ -1,10 +1,14 @@
 package com.example.asus.recruit.ui;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Build;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.WindowManager;
+import android.view.animation.AccelerateInterpolator;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.ImageView;
@@ -33,7 +37,7 @@ public class LaunchActivity extends AppCompatActivity {
     private void initView() {
         mImageBefore = ((ImageView) findViewById(R.id.iv_bg_before));
         mAnimator = new AlphaAnimation(1.0F, 0.0F);
-        mAnimator.setDuration(2500L);
+        mAnimator.setDuration(3000L);
         mAnimator.setFillAfter(true);
         mAnimator.setAnimationListener(new Animation.AnimationListener() {
             public void onAnimationEnd(Animation paramAnonymousAnimation) {
@@ -47,7 +51,10 @@ public class LaunchActivity extends AppCompatActivity {
             public void onAnimationStart(Animation paramAnonymousAnimation) {
             }
         });
-        this.mImageBefore.startAnimation(this.mAnimator);
+        mImageBefore.startAnimation(mAnimator);
+
+
+
     }
 
 

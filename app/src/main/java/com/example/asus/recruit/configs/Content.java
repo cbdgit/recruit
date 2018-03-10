@@ -4,11 +4,16 @@ import com.example.asus.recruit.R;
 
 
 public class Content {
-    public static final String[]  NAME = {"Java 后台","Web 前端","Android 移动","大数据","关于研发"};
-    public static final String[]  SUMMARY = {"   主要进行Java后台服务器开发如JavaWeb应用服务器开发和维护。","   基于HTML/CSS/JS开发，专注于网站界面以及提供更好的视觉冲击和用户体验。"
-            ,"   专注基于Java语言App开发与Android 前沿技术的专研与发展。","大数据balabalabala","   研发中心是计算机的学院的一个老牌团队，至今已有17年的历史。"};
+    public static final String[]  NAME = {"Java 后台","Web 前端","Android 移动","BigData 大数据","RDC 研发中心"};
+    public static final String[]  SUMMARY = {"     主要进行Java后台服务器开发如JavaWeb 应用服务器的开发和维护。","     基于HTML/CSS/JS开发，专注于网站界面以及提供更好的视觉冲击和用户体验。"
+            ,"     主要专注基于Java 语言的App 开发与Android 前沿技术的专研与发展。","     致力于" +
+            "挖掘数据、分析数据。既专注于基础，" +
+            "又落实于项目；既沉浸于原理，又回归到兴趣。","     2001年，研发中心成立" +
+            "至今已经17年历史," +
+            "是计算机学院一个最为老牌的团队。"};
 
-    public static final int[] IMAGE_ID = {R.drawable.houtai2,R.drawable.qianduan,R.drawable.android,R.drawable.big_data,R.drawable.yanfa};
+    public static final int[] IMAGE_ID = {R.drawable.houtaijava,R.drawable.qianduan,R.drawable.android,R.drawable.bigdata,R.drawable.imageview_yanfa};
+    public static final int[] IMAGE_LONG_ID = {R.drawable.houtaijava,R.drawable.qianduan,R.drawable.android,R.drawable.bigdata,R.drawable.imageview_yanfa};
     public static final String[] CONTENT = {"      Java后台开发" +
             "小组一直致力于JavaWeb开发,专注" +
             "于各种前沿的Java技术学习和实践能力的结合," +
@@ -33,7 +38,7 @@ public class Content {
 
 
             "      Web前端开发组基于HTML/CSS/" +
-            "Javascript前端语言进行开发,专注于呈现良好" +
+            "JavaScript前端语言进行开发,专注于呈现良好" +
             "的网站界面和网页交互,提供给用户更好的视觉" +
             "冲击和用户体验,是当前就业面最广的方向。\n\n" +
             "      组内定期开展技术分享会,与此同时,一些已" +
@@ -42,7 +47,7 @@ public class Content {
             "      在技术实力雄厚的同时,最重要的一点是,我" +
             "们有最和谐的性别比例和不能更融洽的相处气" +
             "氛,宇宙工大之下,可谓出淤泥而不染,实属难" +
-            "得\n\n" +
+            "得.\n\n" +
             "      我们需要:基本的C语言理解,0或0以上的前" +
             "端基础,不止的学习热忱,出色的学习能力,良好" +
             "的全局把控力,还有最重要的一点是,细腻。\n\n" +
@@ -64,14 +69,14 @@ public class Content {
             "      Android开发组专注基于Java语言的主流" +
             "app开发与 Android技术的钻研。\n\n" +
             "      我们采用自由高效的管理模式、自由的时间安" +
-            "排,定期的技术分享会与师兄经验交流会等;\n\n" +
-            "      拥有融洽的技术氛围,遇到技术难题,随时提" +
+            "排,定期举行技术分享会与师兄经验交流会等。\n\n" +
+            "      我们拥有融洽的技术氛围,遇到技术难题,随时提" +
             "问,一起探讨解决方法;培养友好的内部关系,消" +
             "除年级隔阂,和谐相处。\n\n" +
             "      研发 Android组有着一群志同道合的朋友,跟" +
             "你一起探索 Android的神秘王国,深入学习Java" +
             "和 Android。除了项目之外,倘若你还有其他新颖" +
-            "可行的想法,还能开发出各种炫酷的Ap或是小" +
+            "可行的想法,还能开发出各种炫酷的App或是小" +
             "游戏给大家使用。\n\n" +
             "      假如你热爱技术、热爱 Android,拥有扎实的C" +
             "语言基础(有Java或 Android基础更佳),善于自" +
@@ -79,15 +84,20 @@ public class Content {
             "么,你正是我们苦苦寻找的小伙伴!\n\n"+
             "      加入我们吧," +
             "不仅能感受浓厚的学习氛围、还能积累项目经" +
-            "验、更有可能获得师兄的内推机会哟~","大数据balabalabala" +
-            "balabalabalabalabalabalabalabalabalabalabalabala" +
-            "balabalabalabalabalabalabalabalabalabalabalabala" +
-            "balabalabalabalabalabalabalabalabalabalabalabalabalabalabala" +
-            "balabalabalabalabalabalabalabalabalabalabalabalabalabalabala" +
-            "balabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabala" +
-            "balabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabala" +
-            "balabalabalabalabalabalabalabalabalabalabalabalabalabalabala" +
-            "balabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabala"
+            "验、更有可能获得师兄的内推机会哟~",
+
+
+
+
+
+
+            "      研发中心大数据组致力于" +
+            "挖掘数据、分析数据。既专注于基础，" +
+            "又落实于项目；既沉浸于原理，又回归到兴趣。\n\n" +
+            "      大数据组是研发中心最年轻的小组，但我们拥有更多的可能去开拓、去创造无限的可能。\n\n" +
+            "      研发大数据组采取自由学习，定期交流的模式。我们鼓励大家向自己感兴趣的方向大胆的探索，" +
+            "同时通过小组交流，一方面督促组员不断学习，另一方面组员之间互相汲取经验，在各自的空间中充分发挥。\n\n" +
+            "      因为年轻，所以无限可能，只要你愿意为你的梦想付出努力，研发定为你的破浪前行而喝彩!"
             ,
 
 
@@ -95,7 +105,7 @@ public class Content {
 
 
             "      2001年,研发中心成立," +
-            "至今已经16年历史," +
+            "至今已经17年历史," +
             "是计算机学院的一个老牌团队。\n\n" +
             "      这么多年来," +
             "团队成员一直致力于互联网、安卓手机应用" +
@@ -108,8 +118,8 @@ public class Content {
             "华为、网易、阿里巴巴、金山等公司进行工作" +
             "这里有优秀的学习榜样、丰富的学习资源" +
             "良好的学习氛围、珍贵的项目经验," +
-            "还有活跃愉快的相处气氛。" +
-            "如果你有出色的学习能力、" +
+            "还有活跃愉快的相处气氛。\n\n" +
+            "      如果你有出色的学习能力、" +
             "对知识有近乎渴望的追求" +
             "以及良好的抗压力和团队协作力" +
             "那就加入我们吧!\n\n" +

@@ -10,7 +10,7 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:scaleType="fitXY"
-        android:src="@drawable/iv_bg_compressed_after"/>
+        android:src="@drawable/background_before_1"/>
 
     <ImageView
          android:scaleType="fitXY"
@@ -20,7 +20,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:src="@drawable/iv_bg_compressed"/>
+        android:src="@drawable/background_before"/>
 
     <ImageView
         android:id="@+id/iv_bg_title"

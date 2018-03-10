@@ -6,11 +6,13 @@ import android.support.v4.view.GestureDetectorCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.ViewDragHelper;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import com.example.asus.recruit.R;
 
@@ -37,6 +39,8 @@ public class DragLayout extends FrameLayout {
     private View bottomView, topView; // FrameLayout的两个子View
 
     private GotoDetailListener gotoDetailListener;
+
+    private TextView mTextView;
 
     public DragLayout(Context context) {
         this(context, null);
@@ -200,12 +204,16 @@ public class DragLayout extends FrameLayout {
     private void processLinkageView() {
         if (topView.getTop() > originY) {
             bottomView.setAlpha(0);
+            mTextView.setAlpha(1);
+
         } else {
             float alpha = (originY - topView.getTop()) * 0.01f;
             if (alpha > 1) {
                 alpha = 1;
             }
             bottomView.setAlpha(alpha);
+            mTextView.setAlpha(1-alpha);
+
             int maxDistance = originY - dragTopDest;
             int currentDistance = topView.getTop() - dragTopDest;
             float scaleRatio = 1;
@@ -310,6 +318,11 @@ public class DragLayout extends FrameLayout {
     }
 
     public interface GotoDetailListener {
+
         public void gotoDetail();
+    }
+
+    public void setTextViewAnimation(TextView textView){
+        mTextView = textView;
     }
 }
