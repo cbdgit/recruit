@@ -37,6 +37,8 @@ import android.os.Build;
 import android.support.v4.view.ViewPager;
 
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
 import android.widget.Toast;
@@ -53,10 +55,11 @@ public class MainActivity extends AppCompatActivity {
     private View mPositionView;
     private ViewPager mViewPager;
     private List<CommonFragment> mFragments;
-
+    private Animation mAnimation;
     private FragmentAdapter mAdapter;
     private Button mButton;
     private Boolean mIsExit;
+    private Button mButtonBack;
     @SuppressLint("HandlerLeak")
     private Handler mHandler = new Handler() {
         @Override
@@ -97,9 +100,10 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        mViewPager = (ViewPager) findViewById(R.id.viewpager);
+        mViewPager =  findViewById(R.id.viewpager);
         mPositionView = findViewById(R.id.position_view);
-        mButton = (Button) findViewById(R.id.iv_baoming);
+        mButton = findViewById(R.id.iv_baoming);
+        mButtonBack = findViewById(R.id.iv_baoming_back);
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -109,6 +113,14 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+
+
+        mAnimation = AnimationUtils.loadAnimation(MainActivity.this,R.anim.breath );
+
+
+        mButtonBack.startAnimation(mAnimation);
+
 
 
         setImageViewchange();
@@ -131,19 +143,20 @@ public class MainActivity extends AppCompatActivity {
                 ArgbEvaluator evaluator = new ArgbEvaluator(); // ARGB求值器
                 int evaluate = 0x00FFFFFF; // 初始默认颜色（透明白）
                 if (position == 0) {
-                    evaluate = (Integer) evaluator.evaluate(positionOffset, 0XFF2d3e50, 0XFFbc67fd); // 根据positionOffset和第0页~第1页的颜色转换范围取颜色值
+                    evaluate = (Integer) evaluator.evaluate(positionOffset, 0XFF000001, 0XFFbc67fd); // 根据positionOffset和第0页~第1页的颜色转换范围取颜色值
                 } else if (position == 1) {
-                    evaluate = (Integer) evaluator.evaluate(positionOffset, 0XFFbc67fd, 0XFF72b701); // 根据positionOffset和第1页~第2页的颜色转换范围取颜色值
+                    evaluate = (Integer) evaluator.evaluate(positionOffset, 0XFFbc67fd, 0XFF73e403); // 根据positionOffset和第1页~第2页的颜色转换范围取颜色值
                 } else if (position == 2) {
-                    evaluate = (Integer) evaluator.evaluate(positionOffset, 0XFF72b701
-                            , 0XFFafa2ab); // 根据positionOffset和第2页~第3页的颜色转换范围取颜色值
+                    evaluate = (Integer) evaluator.evaluate(positionOffset, 0XFF73e403
+                            , 0XFFd3d2da); // 根据positionOffset和第2页~第3页的颜色转换范围取颜色值
                 } else if (position==3){
-                    evaluate = (Integer)evaluator.evaluate(positionOffset,0XFFafa2ab,0XFFfdfdfe);//
+                    evaluate = (Integer)evaluator.evaluate(positionOffset,0XFFd3d2da,0XFFfdfdfe);//
                 }else {
                     evaluate = 0XFFfdfdfe;
                 }
 
                 mBackground.setColor(evaluate);
+
 
 
             }

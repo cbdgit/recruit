@@ -3,7 +3,7 @@
 
     xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
-                android:background="@drawable/background_before"
+                android:background="@drawable/imageview_background_before"
                 android:layout_height="match_parent"
                >
 
@@ -65,17 +65,33 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/iv_baoming"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
+    <RelativeLayout
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="30dp"
-        android:text="@string/recrument"
-        android:textColor="@color/colorText"
-        android:textSize="16sp"
-        android:background="@drawable/btn_bg_recrument"
-        />
+        android:layout_width="match_parent"
+        android:layout_marginBottom="25dp"
+        android:layout_height="75dp">
+        <Button
+            android:id="@+id/iv_baoming_back"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/btn_huxi"
+            />
+
+        <Button
+            android:id="@+id/iv_baoming"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_centerInParent="true"
+            android:textColor="@color/colorText"
+            android:textSize="16sp"
+            android:text="@string/recrument"
+            android:background="@drawable/btn_bg_recrument"
+            />
+
+
+    </RelativeLayout>
+
+
 
 </RelativeLayout>

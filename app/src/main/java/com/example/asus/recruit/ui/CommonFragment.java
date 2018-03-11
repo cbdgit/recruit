@@ -53,14 +53,6 @@ public class CommonFragment extends Fragment implements DragLayout.GotoDetailLis
 
 
 
-
-
-    @Override
-    public void onResume() {
-        super.onResume();
-
-    }
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -91,7 +83,7 @@ public class CommonFragment extends Fragment implements DragLayout.GotoDetailLis
             mContent = savedInstanceState.getString("content");
 
         //    mImage.setImageResource(mImageId);
-            if (!mName.equals("Java 后台")){
+            if (mName!=null&&!mName.equals("Java 后台")){
                 Glide.with(getActivity()).load(mImageId).into(mImage);
 
             }
@@ -111,7 +103,7 @@ public class CommonFragment extends Fragment implements DragLayout.GotoDetailLis
 
 
          //   mImage.setImageResource(mImageId);
-        if (!mName.equals("Java 后台")){
+        if (mName!=null&&!mName.equals("Java 后台")){
             Glide.with(getActivity()).load(mImageId).into(mImage);
 
         }

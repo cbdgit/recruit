@@ -12,8 +12,8 @@ public class Content {
             "至今已经17年历史," +
             "是计算机学院一个最为老牌的团队。"};
 
-    public static final int[] IMAGE_ID = {R.drawable.houtaijava,R.drawable.qianduan,R.drawable.android,R.drawable.bigdata,R.drawable.imageview_yanfa};
-    public static final int[] IMAGE_LONG_ID = {R.drawable.houtaijava,R.drawable.qianduan,R.drawable.android,R.drawable.bigdata,R.drawable.imageview_yanfa};
+    public static final int[] IMAGE_ID = {R.drawable.houtaiij,R.drawable.imageview_qianduan,R.drawable.android,R.drawable.bigdata,R.drawable.imageview_yanfa};
+    public static final int[] IMAGE_LONG_ID = {R.drawable.houtaiij,R.drawable.imageview_qianduan,R.drawable.android,R.drawable.bigdata,R.drawable.imageview_yanfa};
     public static final String[] CONTENT = {"      Java后台开发" +
             "小组一直致力于JavaWeb开发,专注" +
             "于各种前沿的Java技术学习和实践能力的结合," +

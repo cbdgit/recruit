@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
-    android:background="@drawable/background_before"
+    android:background="@drawable/imageview_background_before"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -51,7 +51,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="280dp"
                     android:scaleType="fitXY"
-                    android:src="@drawable/qianduan" />
+                    android:src="@drawable/imageview_qianduan" />
 
             </FrameLayout>
 

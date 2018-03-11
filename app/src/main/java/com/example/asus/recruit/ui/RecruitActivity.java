@@ -120,15 +120,15 @@ public class RecruitActivity extends AppCompatActivity implements View.OnClickLi
                     linearLayout_confirm.setBackgroundColor(getResources().getColor(R.color.colorWeb));
                 }else if (checkedId == R.id.radioButton_java) {
                     Log.d("RecruitActivity", "java");
-                    changeColor(Color.parseColor("#2d3e50"));
+                    changeColor(Color.parseColor("#000001"));
                     linearLayout_confirm.setBackgroundColor(getResources().getColor(R.color.colorJava));
                 }else if (checkedId == R.id.radioButton_android) {
                     Log.d("RecruitActivity", "android");
-                    changeColor(Color.parseColor("#72b701"));
+                    changeColor(Color.parseColor("#73e403"));
                     linearLayout_confirm.setBackgroundColor(getResources().getColor(R.color.colorAndroid));
                 }else if (checkedId == R.id.radioButton_bigData) {
                     Log.d("RecruitActivity", "bigData");
-                    changeColor(Color.parseColor("#afa2ab"));
+                    changeColor(Color.parseColor("#d3d2da"));
                     linearLayout_confirm.setBackgroundColor(getResources().getColor(R.color.colorBigData));
                 }
             }

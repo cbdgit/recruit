@@ -9,7 +9,7 @@
         android:angle="180"
         android:centerX="0"
         android:centerY="0"
-        android:endColor="@android:color/black"
+        android:endColor="#aad6d4d4"
         android:gradientRadius="180"
         android:startColor="@android:color/white"
         android:type="radial"
@@ -23,7 +23,7 @@
 
     <!-- 填充 -->
     <solid
-        android:color="@color/colorJava"
+        android:color="#aad6d4d4"
         /><!-- 填充的颜色 -->
 
 
