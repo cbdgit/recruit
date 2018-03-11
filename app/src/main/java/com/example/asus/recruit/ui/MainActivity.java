@@ -108,6 +108,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, RecruitActivity.class);
+                intent.putExtra("card",mViewPager.getCurrentItem());
                 startActivity(intent);
 
 
@@ -137,25 +138,38 @@ public class MainActivity extends AppCompatActivity {
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
             GradientDrawable mBackground = (GradientDrawable) mButton.getBackground();
+            GradientDrawable mGradientDrawable = (GradientDrawable)mButtonBack.getBackground();
 
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
                 ArgbEvaluator evaluator = new ArgbEvaluator(); // ARGB求值器
+                ArgbEvaluator argbEvaluator = new ArgbEvaluator();
+                int evaluateback  = 0x00FFFFFF;
                 int evaluate = 0x00FFFFFF; // 初始默认颜色（透明白）
                 if (position == 0) {
-                    evaluate = (Integer) evaluator.evaluate(positionOffset, 0XFF000001, 0XFFbc67fd); // 根据positionOffset和第0页~第1页的颜色转换范围取颜色值
+                    evaluate = (Integer) evaluator.evaluate(positionOffset, 0XFF000001, 0XFFbc67fd);// 根据positionOffset和第0页~第1页的颜色转换范围取颜色值
+                    evaluateback =(Integer)argbEvaluator.evaluate(positionOffset,0XAC000001,0XACBC67FD);
                 } else if (position == 1) {
+
                     evaluate = (Integer) evaluator.evaluate(positionOffset, 0XFFbc67fd, 0XFF73e403); // 根据positionOffset和第1页~第2页的颜色转换范围取颜色值
+
+                    evaluateback =(Integer)argbEvaluator.evaluate(positionOffset,0XACbc67fd,0XAC73e403);
                 } else if (position == 2) {
                     evaluate = (Integer) evaluator.evaluate(positionOffset, 0XFF73e403
                             , 0XFFd3d2da); // 根据positionOffset和第2页~第3页的颜色转换范围取颜色值
+
+                    evaluateback =(Integer)argbEvaluator.evaluate(positionOffset,0XAC73e403,0XACd3d2da);
                 } else if (position==3){
                     evaluate = (Integer)evaluator.evaluate(positionOffset,0XFFd3d2da,0XFFfdfdfe);//
+
+                    evaluateback =(Integer)argbEvaluator.evaluate(positionOffset,0XACd3d2da,0XACfdfdfe);
                 }else {
                     evaluate = 0XFFfdfdfe;
+                    evaluateback = 0XACfdfdfe;
                 }
 
                 mBackground.setColor(evaluate);
+                mGradientDrawable.setColor(evaluateback);
 
 
 

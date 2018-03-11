@@ -96,6 +96,31 @@ public class RecruitActivity extends AppCompatActivity implements View.OnClickLi
         ButterKnife.bind(this);
         initView();
         //initValidate();
+        int currentItem = getIntent().getIntExtra("card",0);
+        switch (currentItem){
+            case 0:
+                Log.e(TAG, "onCreate: "+"后台");
+                break;
+            case 1:
+                Log.e(TAG, "onCreate: "+"前端");
+
+                break;
+            case 2:
+                Log.e(TAG, "onCreate: "+"安卓");
+
+                break;
+                case 3:
+                    Log.e(TAG, "onCreate: "+"大数据");
+
+                    break;
+            case  4:
+                Log.e(TAG, "onCreate: "+"研发");
+
+                break;
+                default:
+                    break;
+
+        }
         recruitPresenter = new RecruitPresenter(this);
 
     }
@@ -345,7 +370,7 @@ public class RecruitActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onFailed(String errMsg) {
-        Toast.makeText(this, "报名失败 ，请稍后再试！" , Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "报名失败 !"+errMsg , Toast.LENGTH_SHORT).show();
     }
 
 //    @Override
