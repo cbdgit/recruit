@@ -100,26 +100,25 @@ public class RecruitActivity extends AppCompatActivity implements View.OnClickLi
         switch (currentItem){
             case 0:
                 Log.e(TAG, "onCreate: "+"后台");
+                radioButton_java.setChecked(true);
                 break;
             case 1:
                 Log.e(TAG, "onCreate: "+"前端");
-
+                radioButton_web.setChecked(true);
                 break;
             case 2:
                 Log.e(TAG, "onCreate: "+"安卓");
-
+                radioButton_android.setChecked(true);
                 break;
-                case 3:
-                    Log.e(TAG, "onCreate: "+"大数据");
-
-                    break;
+            case 3:
+                Log.e(TAG, "onCreate: "+"大数据");
+                radioButton_bigData.setChecked(true);
+                break;
             case  4:
                 Log.e(TAG, "onCreate: "+"研发");
-
                 break;
-                default:
-                    break;
-
+            default:
+                break;
         }
         recruitPresenter = new RecruitPresenter(this);
 
@@ -370,7 +369,7 @@ public class RecruitActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onFailed(String errMsg) {
-        Toast.makeText(this, "报名失败 !"+errMsg , Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "报名失败 !" + errMsg , Toast.LENGTH_SHORT).show();
     }
 
 //    @Override

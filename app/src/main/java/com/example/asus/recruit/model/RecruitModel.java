@@ -62,9 +62,13 @@ public class RecruitModel implements RecruitContract.IRecruitModel {
                             callBack.onSuccessful(response);
                             Log.d("RecruitModel", "SUCCESS");
                         }else {
-                            callBack.onFailed(result.getMessage());
                             Log.d("RecruitModel", "FAILED");
                             Log.d("RecruitModel",result.getMessage());
+                            if (response.code() != 200 || result.getMessage().length() > 50) {
+                                callBack.onFailed("服务器正在维护中，请稍后再尝试！");
+                            }else {
+                                callBack.onFailed(result.getMessage());
+                            }
                         }
                     }
 

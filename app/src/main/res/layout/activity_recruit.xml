@@ -10,7 +10,7 @@
         android:id="@+id/imageView_back"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="15dp"
         android:src="@drawable/ic_keyboard_arrow_left_white_48dp"/>
 
     <ImageView
@@ -18,7 +18,7 @@
         android:layout_width="110dp"
         android:layout_height="75dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="25dp"
         android:src="@drawable/title_yanfa"/>
 
     <TextView
@@ -391,7 +391,7 @@
                         android:background="@null"
                         android:hint=""
                         android:textSize="15sp"
-                        android:maxLength="15"
+                        android:maxLength="30"
                         android:maxLines="1"
                         android:inputType="text"/>
 
@@ -769,20 +769,20 @@
 
                                 <RadioButton
                                     android:checked="true"
-
                                     android:id="@+id/radioButton_java"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:buttonTint="@color/colorJava"
                                     android:text="Java后台开发"
                                     android:tag="@color/colorJava"/>
+
                                 <RadioButton
-                                android:id="@+id/radioButton_web"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:buttonTint="@color/colorWeb"
-                                android:text="Web前端开发"
-                                android:tag="@color/colorWeb"/>
+                                    android:id="@+id/radioButton_web"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:buttonTint="@color/colorWeb"
+                                    android:text="Web前端开发"
+                                    android:tag="@color/colorWeb"/>
 
                             </LinearLayout>
 
