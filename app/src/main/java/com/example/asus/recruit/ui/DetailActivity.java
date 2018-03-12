@@ -76,7 +76,7 @@ public class DetailActivity extends AppCompatActivity {
         String name  =getIntent().getStringExtra(NAME);
         String content = getIntent().getStringExtra(Extra.CONTENT);
 
-        Glide.with(this).load(id).into(mImage);
+        mImage.setImageResource(id);
         mTextName.setText(name);
         mTextSummary.setText(content);
     }
