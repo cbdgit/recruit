@@ -58,17 +58,21 @@ public class RecruitModel implements RecruitContract.IRecruitModel {
                         Log.d("RecruitModel", "cookie:" + MyApplication.getCookie());
 
                         HTTPResult result = response.body();
-                        if (result.getResult().equals("success")){
-                            callBack.onSuccessful(response);
-                            Log.d("RecruitModel", "SUCCESS");
-                        }else {
-                            Log.d("RecruitModel", "FAILED");
-                            Log.d("RecruitModel",result.getMessage());
-                            if (response.code() != 200 || result.getMessage().length() > 50) {
-                                callBack.onFailed("服务器正在维护中，请稍后再尝试！");
+                        if (result != null) {
+                            if (result.getResult().equals("success")){
+                                callBack.onSuccessful(response);
+                                Log.d("RecruitModel", "SUCCESS");
                             }else {
-                                callBack.onFailed(result.getMessage());
+                                Log.d("RecruitModel", "FAILED");
+                                Log.d("RecruitModel",result.getMessage());
+                                if (response.code() != 200 || result.getMessage().length() > 50) {
+                                    callBack.onFailed("服务器正在维护中，请稍后再尝试！");
+                                }else {
+                                    callBack.onFailed(result.getMessage());
+                                }
                             }
+                        }else {
+                            callBack.onFailed("服务器正在维护中，请稍后再尝试！");
                         }
                     }
 
@@ -122,18 +126,23 @@ public class RecruitModel implements RecruitContract.IRecruitModel {
                         Log.d("RecruitModel3", "cookie:" + MyApplication.getCookie());
 
                         HTTPResult result = response.body();
-                        if (result.getResult().equals("success")){
-                            callBack.onSuccessful(response);
-                            Log.d("RecruitModel3", "SUCCESS");
-                        }else {
-                            Log.d("RecruitModel3", "FAILED");
-                            Log.d("RecruitModel3",result.getMessage());
-                            if (response.code() != 200 || result.getMessage().length() > 50) {
-                                callBack.onFailed("服务器正在维护中，请稍后再尝试！");
+                        if (result != null) {
+                            if (result.getResult().equals("success")){
+                                callBack.onSuccessful(response);
+                                Log.d("RecruitModel3", "SUCCESS");
                             }else {
-                                callBack.onFailed(result.getMessage());
+                                Log.d("RecruitModel3", "FAILED");
+                                Log.d("RecruitModel3",result.getMessage());
+                                if (response.code() != 200 || result.getMessage().length() > 50) {
+                                    callBack.onFailed("服务器正在维护中，请稍后再尝试！");
+                                }else {
+                                    callBack.onFailed(result.getMessage());
+                                }
                             }
+                        }else {
+                            callBack.onFailed("服务器正在维护中，请稍后再尝试！");
                         }
+
                     }
 
                     @Override
