@@ -75,7 +75,7 @@ public class RecruitActivity extends AppCompatActivity implements View.OnClickLi
     private Drawable oldBackground = null;
     private Drawable bgDrawable;
 
-    private static final String mBaseUrl = "http://120.78.74.103/rdc/ready?t=";
+    private static final String mBaseUrl = "http://120.78.74.103/ready?t=";
     private String time;
     //private static final String validateURL = "http://120.78.74.103/robot/account/loginAccount";
     //private static final String validateURL = "";
