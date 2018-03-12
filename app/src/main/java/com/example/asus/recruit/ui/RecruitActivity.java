@@ -75,7 +75,7 @@ public class RecruitActivity extends AppCompatActivity implements View.OnClickLi
     private Drawable oldBackground = null;
     private Drawable bgDrawable;
 
-    private static final String mBaseUrl = "http://120.78.74.103/rdc/user/ready?t=";
+    private static final String mBaseUrl = "http://120.78.74.103/rdc/ready?t=";
     private String time;
     //private static final String validateURL = "http://120.78.74.103/robot/account/loginAccount";
     //private static final String validateURL = "";
@@ -315,7 +315,7 @@ public class RecruitActivity extends AppCompatActivity implements View.OnClickLi
                 Log.i("dsd","gt3DialogOnError");
                 gt3GeetestUtils.gt3TestFinish();
                 recruitPresenter.withoutValidate(editText_name.getText().toString(), editText_studentId.getText().toString(),
-                        spinner_gender.getSelectedItem().toString(), editText_college + editText_class.getText().toString(), editText_duty.getText().toString(),
+                        spinner_gender.getSelectedItem().toString(), editText_college.getText().toString() + editText_class.getText().toString(), editText_duty.getText().toString(),
                         editText_telephone.getText().toString(), "0", editText_email.getText().toString(),
                         editText_qq.getText().toString(), ((RadioButton)findViewById(radioGroup_direction.getCheckedRadioButtonId())).getText().toString(),
                         editText_skill.getText().toString(), editText_introduce.getText().toString(), editText_wish.getText().toString());
