@@ -364,7 +364,7 @@ public class RecruitActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onSuccess(HTTPResult demandResult) {
-        Toast.makeText(this, "报名成功 ！", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "报名成功 ！我们期待你的表现哦！", Toast.LENGTH_SHORT).show();
     }
 
     @Override
