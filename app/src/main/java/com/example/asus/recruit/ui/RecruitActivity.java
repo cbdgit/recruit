@@ -32,6 +32,7 @@ import com.example.asus.recruit.entity.ValidateResult;
 import com.example.asus.recruit.presenter.RecruitPresenter;
 import com.example.asus.recruit.widget.CustomNestRadioGroup;
 import com.example.asus.recruit.widget.OneKeyClearEditText;
+import com.example.asus.recruit.widget.RegExpValidatorUtils;
 import com.geetest.gt3unbindsdk.Bind.GT3GeetestBindListener;
 import com.geetest.gt3unbindsdk.Bind.GT3GeetestUtilsBind;
 
@@ -354,7 +355,29 @@ public class RecruitActivity extends AppCompatActivity implements View.OnClickLi
                         TextUtils.isEmpty(editText_wish.getText())) {
                     Toast.makeText(this, "请输入完整的内容 ！" ,Toast.LENGTH_SHORT).show();
                 }else {
-                    initValidate();
+                    if (!RegExpValidatorUtils.isName(editText_name.getText().toString())) {
+                        Toast.makeText(this, "名字一栏不能有空格喔" ,Toast.LENGTH_SHORT).show();
+                    }else if (!RegExpValidatorUtils.isStuNum(editText_studentId.getText().toString())) {
+                        Toast.makeText(this, "学号错误了喔，仅限大一同学报名（特殊情况请联系师兄师姐）" ,Toast.LENGTH_SHORT).show();
+                    }else if (!RegExpValidatorUtils.isClass(editText_college.getText().toString() + editText_class.getText().toString())) {
+                        Toast.makeText(this, "学院专业班级不能有空格喔" ,Toast.LENGTH_SHORT).show();
+                    }else if (!RegExpValidatorUtils.isSelf(editText_duty.getText().toString())) {
+                        Toast.makeText(this, "职务一栏不能有空格喔" ,Toast.LENGTH_SHORT).show();
+                    }else if (!RegExpValidatorUtils.isPhone(editText_telephone.getText().toString())) {
+                        Toast.makeText(this, "再检查一下手机号码输正确了没有？" ,Toast.LENGTH_SHORT).show();
+                    }else if (!RegExpValidatorUtils.isEmail(editText_email.getText().toString())) {
+                        Toast.makeText(this, "再检查一下邮箱的格式？" ,Toast.LENGTH_SHORT).show();
+                    }else if (!RegExpValidatorUtils.isQQ(editText_qq.getText().toString())) {
+                        Toast.makeText(this, "再检查一下QQ的输正确了没有？" ,Toast.LENGTH_SHORT).show();
+                    }else if (!RegExpValidatorUtils.isSelf(editText_skill.getText().toString())) {
+                        Toast.makeText(this, "特长一栏不能有空格喔" ,Toast.LENGTH_SHORT).show();
+                    }else if (!RegExpValidatorUtils.isSelf(editText_introduce.getText().toString())) {
+                        Toast.makeText(this, "自我介绍一栏不能有空格喔" ,Toast.LENGTH_SHORT).show();
+                    }else if (!RegExpValidatorUtils.isSelf(editText_wish.getText().toString())) {
+                        Toast.makeText(this, "期望一栏不能有空格喔" ,Toast.LENGTH_SHORT).show();
+                    }else {
+                        initValidate();
+                    }
                 }
                 break;
             default:
@@ -365,6 +388,7 @@ public class RecruitActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onSuccess(HTTPResult demandResult) {
         Toast.makeText(this, "报名成功 ！我们期待你的表现哦！", Toast.LENGTH_SHORT).show();
+        finish();
     }
 
     @Override
