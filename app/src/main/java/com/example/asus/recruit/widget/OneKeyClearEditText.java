@@ -11,12 +11,16 @@ import android.text.Editable;
 import android.text.Layout;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ScrollView;
 
 import com.example.asus.recruit.R;
 
-public class OneKeyClearEditText extends AppCompatEditText implements TextWatcher, View.OnFocusChangeListener {
+public class OneKeyClearEditText extends AppCompatEditText implements TextWatcher, View.OnFocusChangeListener ,View.OnTouchListener {
+//public class OneKeyClearEditText extends AppCompatEditText implements TextWatcher, View.OnFocusChangeListener {
+
 
     private Drawable mClearDrawable;
     private boolean hasFocus;// 控件是否有焦点
@@ -101,6 +105,8 @@ public class OneKeyClearEditText extends AppCompatEditText implements TextWatche
         initClearDrawable(context);
         setOnFocusChangeListener(this);
         addTextChangedListener(this);
+
+        setOnTouchListener(this);
     }
 
     private void initClearDrawable(Context context) {
@@ -224,7 +230,7 @@ public class OneKeyClearEditText extends AppCompatEditText implements TextWatche
     }
 
     @Override
-    public void onFocusChange(View v, boolean hasFocus) {
+    public void onFocusChange(final View v, boolean hasFocus) {
         this.hasFocus = hasFocus;
         CardView cardView = (CardView)getParent();
         if (hasFocus) {
@@ -235,5 +241,48 @@ public class OneKeyClearEditText extends AppCompatEditText implements TextWatche
             setClearIconVisible(false);
             cardView.setCardElevation(0.0f);
         }
+
+        //...
+        final ScrollView scrollView = (ScrollView)getParent().getParent().getParent().getParent();
+        scrollView.post(new Runnable() {
+            @Override
+            public void run() {
+
+//                int[] location = new int[2];
+//                v.getLocationInWindow(location);
+//
+//                Log.d("OneKeyClearEditText", "SCROLLVIEW" + " X :" + v.getX() + " Y :" + v.getY() + " Height :" + v.getHeight() +
+//                        " getPaddingTop :" + v.getPaddingTop() + " location :" + location[0] + "," + location[1]);
+                if (v.getId() == R.id.editText_telephone || v.getId() == R.id.editText_email || v.getId() == R.id.editText_qq) {
+                    scrollView.smoothScrollTo(0, 726);
+                }
+                if (v.getId() == R.id.editText_skill || v.getId() == R.id.editText_introduce) {
+                    scrollView.smoothScrollTo(0, 1556);
+                }
+                if (v.getId() == R.id.editText_name || v.getId() == R.id.editText_studentId ||
+                        v.getId() == R.id.editText_college || v.getId() == R.id.editText_class || v.getId() == R.id.editText_duty) {
+                    scrollView.smoothScrollTo(0, 0);
+                }
+                if (v.getId() == R.id.editText_wish) {
+                    scrollView.smoothScrollTo(0, 2000);
+                }
+            }
+        });
+    }
+
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+//        final ScrollView scrollView = (ScrollView)getParent().getParent().getParent().getParent();
+//        if (v.getId() == R.id.editText_telephone || v.getId() == R.id.editText_email || v.getId() == R.id.editText_qq) {
+//            Log.d("OneKeyClearEditText", "SCROLLVIEW");
+//            v.seth;
+//            scrollView.post(new Runnable() {
+//                @Override
+//                public void run() {
+//                    scrollView.smoothScrollTo(0, 726);
+//                }
+//            });
+//        }
+        return false;
     }
 }

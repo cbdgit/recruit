@@ -22,6 +22,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -72,6 +73,7 @@ public class RecruitActivity extends AppCompatActivity implements View.OnClickLi
     @BindView(R.id.button_confirm) Button button_confirm;
     @BindView(R.id.relativeLayout_recruitActivity) RelativeLayout relativeLayout_recruitActivity;
     @BindView(R.id.linearLayout_confirm) LinearLayout linearLayout_confirm;
+    @BindView(R.id.scrollView3) ScrollView scrollView;
     private CustomNestRadioGroup radioGroup_direction;
     private Drawable oldBackground = null;
     private Drawable bgDrawable;
@@ -96,6 +98,7 @@ public class RecruitActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_recruit);
         ButterKnife.bind(this);
         initView();
+        initListener();
         //initValidate();
         int currentItem = getIntent().getIntExtra("card",0);
         switch (currentItem){
@@ -158,40 +161,63 @@ public class RecruitActivity extends AppCompatActivity implements View.OnClickLi
                 }
             }
         });
+    }
 
-        //editText滑动方法1
-//        editText_introduce.setOnTouchListener(new View.OnTouchListener() {
+    private void initListener() {
+//        scrollView.post(new Runnable() {
 //            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                if (v.getId() == R.id.editText_introduce) {
-//                    v.getParent().requestDisallowInterceptTouchEvent(true);
-//                    switch (event.getAction()&MotionEvent.ACTION_MASK){
-//                        case MotionEvent.ACTION_UP:
-//                            v.getParent().requestDisallowInterceptTouchEvent(false);
-//                            break;
-//                    }
-//                }
-//                return false;
-//            }
-//        });
-//
-//
-//        editText_wish.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                if (v.getId() == R.id.editText_wish) {
-//                    v.getParent().requestDisallowInterceptTouchEvent(true);
-//                    switch (event.getAction()&MotionEvent.ACTION_MASK){
-//                        case MotionEvent.ACTION_UP:
-//                            v.getParent().requestDisallowInterceptTouchEvent(false);
-//                            break;
-//                    }
-//                }
-//                return false;
+//            public void run() {
+//                int[] location = new int[2];
+//                v.getLocationInWindow(location);
+//                Log.d("OneKeyClearEditText", "SCROLLVIEW" + " X :" + v.getX() + " Y :" + v.getY() + " Height :" + v.getHeight() +
+//                        " getPaddingTop :" + v.getPaddingTop() + " location :" + location[0] + "," + location[1]);
+//                scrollView.smoothScrollTo(0, location[1]);
 //            }
 //        });
 
-//        editText_introduce.setOnTouchListener(this);
+//        editText_telephone.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//                scrollView.smoothScrollTo(0, 726);
+//                return true;
+//            }
+//        });
+//        editText_email.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//                scrollView.smoothScrollTo(0, 726);
+//                return true;
+//            }
+//        });
+//        editText_qq.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//                scrollView.smoothScrollTo(0, 726);
+//                return true;
+//            }
+//        });
+
+//        editText_telephone.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Log.d(TAG, "ONCLICK");
+//                scrollView.smoothScrollTo(0, 726);
+//            }
+//        });
+//        editText_email.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Log.d(TAG, "ONCLICK");
+//                scrollView.smoothScrollTo(0, 726);
+//            }
+//        });
+//        editText_qq.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Log.d(TAG, "ONCLICK");
+//                scrollView.smoothScrollTo(0, 726);
+//            }
+//        });
     }
 
 
@@ -395,39 +421,5 @@ public class RecruitActivity extends AppCompatActivity implements View.OnClickLi
     public void onFailed(String errMsg) {
         Toast.makeText(this, "报名失败 !" + errMsg , Toast.LENGTH_SHORT).show();
     }
-
-//    @Override
-//    public boolean onTouch(View view, MotionEvent motionEvent) {
-//        //触摸的是EditText并且当前EditText可以滚动则将事件交给EditText处理；否则将事件交由其父类处理
-//        if ((view.getId() == R.id.editText_introduce && canVerticalScroll(editText_introduce))) {
-//            view.getParent().requestDisallowInterceptTouchEvent(true);
-//            if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-//                view.getParent().requestDisallowInterceptTouchEvent(false);
-//            }
-//        }
-//        return false;
-//    }
-
-//    /**
-//     * EditText竖直方向是否可以滚动
-//     * @param editText  需要判断的EditText
-//     * @return  true：可以滚动   false：不可以滚动
-//     */
-//    private boolean canVerticalScroll(EditText editText) {
-//        //滚动的距离
-//        int scrollY = editText.getScrollY();
-//        //控件内容的总高度
-//        int scrollRange = editText.getLayout().getHeight();
-//        //控件实际显示的高度
-//        int scrollExtent = editText.getHeight() - editText.getCompoundPaddingTop() -editText.getCompoundPaddingBottom();
-//        //控件内容总高度与实际显示高度的差值
-//        int scrollDifference = scrollRange - scrollExtent;
-//
-//        if(scrollDifference == 0) {
-//            return false;
-//        }
-//
-//        return (scrollY > 0) || (scrollY < scrollDifference - 1);
-//    }
 
 }

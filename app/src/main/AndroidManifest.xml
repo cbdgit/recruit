@@ -27,7 +27,11 @@
         </activity>
         <activity android:name=".ui.DetailActivity">
         </activity>
-        <activity android:name=".ui.RecruitActivity">
+        <activity
+            android:name=".ui.RecruitActivity"
+            android:windowSoftInputMode="adjustUnspecified">
+
+            <!--android:windowSoftInputMode="adjustPan"-->
 
         </activity>
     </application>
