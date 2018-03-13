@@ -84,7 +84,6 @@ public class RecruitActivity extends AppCompatActivity implements View.OnClickLi
     //private static final String validateURL = "";
     private static final String validateURL = null;
     private GT3GeetestUtilsBind gt3GeetestUtils;
-
     private RecruitPresenter recruitPresenter;
 
     @Override
