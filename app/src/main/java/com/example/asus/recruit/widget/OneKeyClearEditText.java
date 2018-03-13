@@ -89,17 +89,6 @@ public class OneKeyClearEditText extends AppCompatEditText implements TextWatche
         return super.dispatchTouchEvent(event);
     }
 
-//    @Override
-//    public boolean dispatchTouchEvent(MotionEvent event) {
-//        if (event.getAction() == MotionEvent.ACTION_DOWN)
-//            //如果是新的按下事件，则对mBottomFlag重新初始化
-//            mBottomFlag = false;
-//        //如果已经不要这次事件，则传出取消的信号，这里的作用不大
-//        if (mBottomFlag)
-//            event.setAction(MotionEvent.ACTION_CANCEL);
-//        return super.dispatchTouchEvent(event);
-//    }
-
     public OneKeyClearEditText(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initClearDrawable(context);
@@ -198,17 +187,6 @@ public class OneKeyClearEditText extends AppCompatEditText implements TextWatche
         }
     }
 
-//    @Override
-//    protected void onScrollChanged(int horiz, int vert, int oldHoriz, int oldVert) {
-//        super.onScrollChanged(horiz, vert, oldHoriz, oldVert);
-//        if (vert == mOffsetHeight || vert == 0) {
-//            //这里触发父布局或祖父布局的滑动事件
-//            getParent().requestDisallowInterceptTouchEvent(false);
-//            mBottomFlag = true;
-//        }
-//    }
-
-
     @Override
     public void onTextChanged(CharSequence text, int start, int lengthBefore, int lengthAfter) {
         if (hasFocus) {
@@ -230,7 +208,7 @@ public class OneKeyClearEditText extends AppCompatEditText implements TextWatche
     }
 
     @Override
-    public void onFocusChange(final View v, boolean hasFocus) {
+    public void onFocusChange(final View v, final boolean hasFocus) {
         this.hasFocus = hasFocus;
         CardView cardView = (CardView)getParent();
         if (hasFocus) {
@@ -242,47 +220,51 @@ public class OneKeyClearEditText extends AppCompatEditText implements TextWatche
             cardView.setCardElevation(0.0f);
         }
 
-        //...
-        final ScrollView scrollView = (ScrollView)getParent().getParent().getParent().getParent();
-        scrollView.post(new Runnable() {
-            @Override
-            public void run() {
-
-//                int[] location = new int[2];
-//                v.getLocationInWindow(location);
+//        //...
+//        final ScrollView scrollView = (ScrollView)getParent().getParent().getParent().getParent();
 //
-//                Log.d("OneKeyClearEditText", "SCROLLVIEW" + " X :" + v.getX() + " Y :" + v.getY() + " Height :" + v.getHeight() +
-//                        " getPaddingTop :" + v.getPaddingTop() + " location :" + location[0] + "," + location[1]);
-                if (v.getId() == R.id.editText_telephone || v.getId() == R.id.editText_email || v.getId() == R.id.editText_qq) {
-                    scrollView.smoothScrollTo(0, 726);
-                }
-                if (v.getId() == R.id.editText_skill || v.getId() == R.id.editText_introduce) {
-                    scrollView.smoothScrollTo(0, 1556);
-                }
-                if (v.getId() == R.id.editText_name || v.getId() == R.id.editText_studentId ||
-                        v.getId() == R.id.editText_college || v.getId() == R.id.editText_class || v.getId() == R.id.editText_duty) {
-                    scrollView.smoothScrollTo(0, 0);
-                }
-                if (v.getId() == R.id.editText_wish) {
-                    scrollView.smoothScrollTo(0, 2000);
-                }
-            }
-        });
+//        scrollView.post(new Runnable() {
+//            @Override
+//            public void run() {
+//
+//
+//                if (hasFocus) {
+//                    int[] location = new int[2];
+////                    v.getLocationInWindow(location);
+//                    v.getLocationOnScreen(location);
+//                    Log.d("OneKeyClearEditText", String.valueOf(v.getId()) + " location[1] : " + location[1] + " scrollView.getHeight() : " + scrollView.getHeight());
+//                    if (v.getId() == R.id.editText_telephone || v.getId() == R.id.editText_email || v.getId() == R.id.editText_qq) {
+////                        scrollView.smoothScrollTo(0, 700);
+////                        scrollView.smoothScrollTo(0, location[1] + 110);
+////                        scrollView.scrollTo(0, location[1] - scrollView.getHeight());
+//                        scrollView.scrollBy(0, scrollView.getHeight() - location[1]);
+//
+//                    }
+//                    if (v.getId() == R.id.editText_skill || v.getId() == R.id.editText_introduce) {
+////                        scrollView.smoothScrollTo(0, 1530);
+//                        scrollView.scrollBy(0, scrollView.getHeight() - location[1]);
+//                    }
+//                    if (v.getId() == R.id.editText_name || v.getId() == R.id.editText_studentId ||
+//                            v.getId() == R.id.editText_college || v.getId() == R.id.editText_class || v.getId() == R.id.editText_duty) {
+////                        scrollView.smoothScrollTo(0, 0);
+//                        scrollView.scrollBy(0, scrollView.getHeight() - location[1]);
+//                    }
+//                    if (v.getId() == R.id.editText_wish) {
+////                        scrollView.smoothScrollTo(0, 2000);
+//                        scrollView.scrollBy(0, scrollView.getHeight() - location[1]);
+//                    }
+//                    //.........
+////                    v.setFocusable(true);
+////                    v.setFocusableInTouchMode(true);
+////                    v.requestFocus();
+////                    v.findFocus();
+//                }
+//            }
+//        });
     }
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
-//        final ScrollView scrollView = (ScrollView)getParent().getParent().getParent().getParent();
-//        if (v.getId() == R.id.editText_telephone || v.getId() == R.id.editText_email || v.getId() == R.id.editText_qq) {
-//            Log.d("OneKeyClearEditText", "SCROLLVIEW");
-//            v.seth;
-//            scrollView.post(new Runnable() {
-//                @Override
-//                public void run() {
-//                    scrollView.smoothScrollTo(0, 726);
-//                }
-//            });
-//        }
         return false;
     }
 }

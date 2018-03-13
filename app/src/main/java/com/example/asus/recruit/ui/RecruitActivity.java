@@ -98,7 +98,6 @@ public class RecruitActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_recruit);
         ButterKnife.bind(this);
         initView();
-        initListener();
         //initValidate();
         int currentItem = getIntent().getIntExtra("card",0);
         switch (currentItem){
@@ -138,88 +137,29 @@ public class RecruitActivity extends AppCompatActivity implements View.OnClickLi
 //        bgDrawable = getResources().getColor(R.color.web)
         bgDrawable = new ColorDrawable(getResources().getColor(R.color.colorJava));
 
-        radioGroup_direction.setOnCheckedChangeListener(new CustomNestRadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CustomNestRadioGroup group, int checkedId) {
-
-                if (checkedId == R.id.radioButton_web) {
-                    Log.d("RecruitActivity", "web");
-                    changeColor(Color.parseColor("#bc67fd"));
-                    linearLayout_confirm.setBackgroundColor(getResources().getColor(R.color.colorWeb));
-                }else if (checkedId == R.id.radioButton_java) {
-                    Log.d("RecruitActivity", "java");
-                    changeColor(Color.parseColor("#000001"));
-                    linearLayout_confirm.setBackgroundColor(getResources().getColor(R.color.colorJava));
-                }else if (checkedId == R.id.radioButton_android) {
-                    Log.d("RecruitActivity", "android");
-                    changeColor(Color.parseColor("#73e403"));
-                    linearLayout_confirm.setBackgroundColor(getResources().getColor(R.color.colorAndroid));
-                }else if (checkedId == R.id.radioButton_bigData) {
-                    Log.d("RecruitActivity", "bigData");
-                    changeColor(Color.parseColor("#d3d2da"));
-                    linearLayout_confirm.setBackgroundColor(getResources().getColor(R.color.colorBigData));
-                }
-            }
-        });
-    }
-
-    private void initListener() {
-//        scrollView.post(new Runnable() {
+//        radioGroup_direction.setOnCheckedChangeListener(new CustomNestRadioGroup.OnCheckedChangeListener() {
 //            @Override
-//            public void run() {
-//                int[] location = new int[2];
-//                v.getLocationInWindow(location);
-//                Log.d("OneKeyClearEditText", "SCROLLVIEW" + " X :" + v.getX() + " Y :" + v.getY() + " Height :" + v.getHeight() +
-//                        " getPaddingTop :" + v.getPaddingTop() + " location :" + location[0] + "," + location[1]);
-//                scrollView.smoothScrollTo(0, location[1]);
-//            }
-//        });
-
-//        editText_telephone.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                scrollView.smoothScrollTo(0, 726);
-//                return true;
-//            }
-//        });
-//        editText_email.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                scrollView.smoothScrollTo(0, 726);
-//                return true;
-//            }
-//        });
-//        editText_qq.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                scrollView.smoothScrollTo(0, 726);
-//                return true;
-//            }
-//        });
-
-//        editText_telephone.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Log.d(TAG, "ONCLICK");
-//                scrollView.smoothScrollTo(0, 726);
-//            }
-//        });
-//        editText_email.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Log.d(TAG, "ONCLICK");
-//                scrollView.smoothScrollTo(0, 726);
-//            }
-//        });
-//        editText_qq.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Log.d(TAG, "ONCLICK");
-//                scrollView.smoothScrollTo(0, 726);
+//            public void onCheckedChanged(CustomNestRadioGroup group, int checkedId) {
+//                if (checkedId == R.id.radioButton_web) {
+//                    Log.d("RecruitActivity", "web");
+//                    changeColor(Color.parseColor("#bc67fd"));
+//                    linearLayout_confirm.setBackgroundColor(getResources().getColor(R.color.colorWeb));
+//                }else if (checkedId == R.id.radioButton_java) {
+//                    Log.d("RecruitActivity", "java");
+//                    changeColor(Color.parseColor("#000001"));
+//                    linearLayout_confirm.setBackgroundColor(getResources().getColor(R.color.colorJava));
+//                }else if (checkedId == R.id.radioButton_android) {
+//                    Log.d("RecruitActivity", "android");
+//                    changeColor(Color.parseColor("#73e403"));
+//                    linearLayout_confirm.setBackgroundColor(getResources().getColor(R.color.colorAndroid));
+//                }else if (checkedId == R.id.radioButton_bigData) {
+//                    Log.d("RecruitActivity", "bigData");
+//                    changeColor(Color.parseColor("#d3d2da"));
+//                    linearLayout_confirm.setBackgroundColor(getResources().getColor(R.color.colorBigData));
+//                }
 //            }
 //        });
     }
-
 
     private void initValidate() {
 
